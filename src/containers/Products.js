@@ -1,11 +1,12 @@
 import React from 'react';
 import base from '../firebase';
-import styled from 'styled-components';
 import ProductListItem from '../components/ProductListItem';
+import LoadMoreButton from '../UI/LoadMoreButton';
 
 class Products extends React.Component {
   state = {
-    products: []
+    products: [],
+    lastLimit: 4
   };
 
   componentDidMount() {
@@ -30,15 +31,30 @@ class Products extends React.Component {
       .catch(error => console.log(error));
   }
 
+  loadMore() {
+    this.setState((prevState, prevProps) => ({
+      lastLimit: prevState.lastLimit + 4
+    }));
+  }
+
   ProductList() {
-    return this.state.products.map(item => {
+    return this.state.products.slice(0, this.state.lastLimit).map(item => {
       return <ProductListItem key={item.key} id={item.key} item={item} />;
     });
   }
 
   render() {
     const ProductList = this.ProductList();
-    return <div>{ProductList}</div>;
+    return (
+      <div>
+        {ProductList}
+        {this.state.products.length === this.state.lastLimit ? null : (
+          <LoadMoreButton onClick={this.loadMore.bind(this)}>
+            Load More
+          </LoadMoreButton>
+        )}
+      </div>
+    );
   }
 }
 

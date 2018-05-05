@@ -1,5 +1,7 @@
 export const fontColor1 = '#000000';
 export const fontColor2 = '#ffffff';
 
-export const color1 = '#218c74';
-export const color2 = '#34ace0';
+export const colorG = '#33d9b2';
+export const colorB = '#34ace0';
+export const colorO = '#ff793f';
+export const colorP = '#706fd3';

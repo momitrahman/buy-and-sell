@@ -24,7 +24,7 @@ const Info = styled.div`
 `;
 
 const Heading = styled.div`
-  color: ${color.color2};
+  color: ${color.colorO};
   font-size: 22px;
   margin-bottom: 5px;
 `;
@@ -35,7 +35,7 @@ const LocationTime = styled.div`
 
 const Prize = styled.div`
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
 `;
 
 const ProductListItem = props => {

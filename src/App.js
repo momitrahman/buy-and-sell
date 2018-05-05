@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-
+import Products from './containers/Products';
 
 class App extends Component {
   render() {
-    return <h1>Buy & Sell</h1>;
+    return (
+      <React.Fragment>
+        <Products />
+      </React.Fragment>
+    );
   }
 }
 

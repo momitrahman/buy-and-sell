@@ -1,0 +1,21 @@
+{
+  "name": "buy-and-sell",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "^4.13.1",
+    "moment": "^2.22.1",
+    "re-base": "^3.2.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router": "^4.2.0",
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.2.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

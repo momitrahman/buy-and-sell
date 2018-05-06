@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from '../UI/SearchBar';
+import SearchBar from '../components/SearchBar';
 
 class Header extends React.Component {
   // state = {  }

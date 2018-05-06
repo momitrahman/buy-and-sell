@@ -6,7 +6,7 @@ import * as color from '../UI/color';
 const Item = styled.div`
   width: 500px;
   display: flex;
-  margin: 10px;
+  margin: 30px 10px;
   border-radius: 5px;
   box-shadow: 0 0 1px black;
   background: white;

@@ -50,7 +50,7 @@ class Products extends React.Component {
         {ProductList}
         {this.state.products.length === this.state.lastLimit ? null : (
           <LoadMoreButton onClick={this.loadMore.bind(this)}>
-            Load More
+            <i className="ion-chevron-down" style={{ fontSize: '25px' }} />
           </LoadMoreButton>
         )}
       </div>

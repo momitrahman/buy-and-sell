@@ -1,31 +1,46 @@
 import React, { Component } from 'react';
+import base from './firebase';
 import Products from './containers/Products';
 import Header from './containers/Header';
-import Modal from './components/Modal';
 
 class App extends Component {
   state = {
-    modal: false
+    products: [],
+    search: '',
+    filteredProductList: []
   };
 
-  handleModal = () => {
-    this.setState({ modal: !this.state.modal });
+  componentDidMount() {
+    base
+      .fetch('/products', {
+        context: this,
+        asArray: true
+      })
+      .then(data =>
+        this.setState({ products: data, filteredProductList: data })
+      )
+      .catch(error => console.log(error));
+  }
+
+  filteredProduct = search => {
+    const productList = this.state.products.filter(item =>
+      item.title.toLowerCase().includes(search.toLowerCase())
+    );
+    this.setState({ filteredProductList: productList });
+  };
+
+  handleSearch = text => {
+    this.setState({ search: text });
+    this.filteredProduct(text);
   };
 
   render() {
     return (
       <React.Fragment>
-        <Header />
-        <Products />
-        <button onClick={this.handleModal}>Modal</button>
-        <Modal
-          close
-          visible={this.state.modal}
-          handleModal={this.handleModal}
-          title="Location"
-        >
-          ok
-        </Modal>
+        <Header handleSearch={this.handleSearch} />
+        {this.state.products.length > 0 && (
+          <Products filteredProduct={this.state.filteredProductList} />
+        )}
       </React.Fragment>
     );
   }

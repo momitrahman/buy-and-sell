@@ -1,54 +1,36 @@
 import React from 'react';
-import base from '../firebase';
 import ProductListItem from '../components/ProductListItem';
 import LoadMoreButton from '../UI/LoadMoreButton';
 
 class Products extends React.Component {
   state = {
-    products: [],
-    lastLimit: 4
+    limit: 4
   };
 
-  componentDidMount() {
-    this.loadProducts();
-  }
-
-  loadProducts() {
-    base
-      .fetch('/products', {
-        context: this,
-        asArray: true,
-        queries: {
-          orderByChild: 'prize',
-          startAt: 200
-        }
-      })
-      .then(data =>
-        this.setState(prevState => ({
-          products: data
-        }))
-      )
-      .catch(error => console.log(error));
+  componentDidUpdate(prevProps) {
+    if (this.props.filteredProduct !== prevProps.filteredProduct) {
+      this.setState({ limit: 4 });
+    }
   }
 
   loadMore() {
-    this.setState((prevState, prevProps) => ({
-      lastLimit: prevState.lastLimit + 4
+    this.setState(prevState => ({
+      limit: prevState.limit + 4
     }));
   }
 
-  ProductList() {
-    return this.state.products.slice(0, this.state.lastLimit).map(item => {
+  productList() {
+    return this.props.filteredProduct.slice(0, this.state.limit).map(item => {
       return <ProductListItem key={item.key} id={item.key} item={item} />;
     });
   }
 
   render() {
-    const ProductList = this.ProductList();
+    const ProductList = this.productList();
     return (
       <div>
         {ProductList}
-        {this.state.products.length === this.state.lastLimit ? null : (
+        {this.props.filteredProduct.length > this.state.limit && (
           <LoadMoreButton onClick={this.loadMore.bind(this)}>
             <i className="ion-chevron-down" style={{ fontSize: '25px' }} />
           </LoadMoreButton>

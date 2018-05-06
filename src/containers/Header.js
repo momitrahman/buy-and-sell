@@ -11,16 +11,20 @@ class Header extends React.Component {
   };
 
   setSearchTextClick = () => {
-    this.props.handleSearch(this.state.searchInput);
+    if (this.state.searchInput) {
+      this.props.handleSearch(this.state.searchInput);
+    }
   };
 
   setSearchTextClear = () => {
-    this.setState({ searchInput: '' });
-    this.props.handleSearch('');
+    if (this.state.searchInput) {
+      this.setState({ searchInput: '' });
+      this.props.handleSearch('');
+    }
   };
 
   setSearchTextEnter = event => {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 && this.state.searchInput) {
       this.props.handleSearch(this.state.searchInput);
     }
   };

@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import base from './firebase';
 import Products from './containers/Products';
 import Header from './containers/Header';
+import Filter from './containers/Filter';
 
 class App extends Component {
   state = {
     products: [],
+    filteredProductList: [],
     search: '',
-    filteredProductList: []
+    location: ''
   };
 
   componentDidMount() {
@@ -38,6 +40,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header handleSearch={this.handleSearch} />
+        <Filter />
         {this.state.products.length > 0 && (
           <Products filteredProduct={this.state.filteredProductList} />
         )}

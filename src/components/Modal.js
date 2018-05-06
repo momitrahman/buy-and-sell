@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as color from '../UI/color';
 
@@ -14,7 +15,7 @@ const Backdrop = styled.div`
 
 const Content = styled.div`
   background-color: white;
-  width: 500px;
+  width: 550px;
   position: absolute;
   top: 100px;
   left: 50%;
@@ -45,8 +46,8 @@ const Close = styled.i`
     color: ${color.colorO};
   }
 `;
-
 const Modal = props => {
+  const children = props.children;
   return props.visible ? (
     <React.Fragment>
       <Backdrop onClick={props.handleModal} />
@@ -55,10 +56,20 @@ const Modal = props => {
           <Close onClick={props.handleModal} className="ion-close" />
         )}
         <Title>{props.title}</Title>
-        <Body>{props.children}</Body>
+        <Body>{children}</Body>
       </Content>
     </React.Fragment>
   ) : null;
 };
 
+Modal.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  close: PropTypes.bool.isRequired,
+  handleModal: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.element.isRequired,
+    PropTypes.string.isRequired
+  ])
+};
 export default Modal;

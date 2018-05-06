@@ -4,7 +4,7 @@ import moment from 'moment';
 import * as color from '../UI/color';
 
 const Item = styled.div`
-  width: 500px;
+  width: 550px;
   display: flex;
   margin: 30px 10px;
   border-radius: 5px;
@@ -24,7 +24,7 @@ const Info = styled.div`
 `;
 
 const Heading = styled.div`
-  color: ${color.colorO};
+  color: ${color.colorG};
   font-size: 22px;
   margin-bottom: 5px;
 `;

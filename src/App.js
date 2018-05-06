@@ -24,23 +24,49 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
-  filteredProduct = search => {
-    const productList = this.state.products.filter(item =>
-      item.title.toLowerCase().includes(search.toLowerCase())
-    );
-    this.setState({ filteredProductList: productList });
-  };
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.search !== this.state.search ||
+      prevState.location !== this.state.location
+    ) {
+      this.filteredProduct();
+    }
+  }
 
   handleSearch = text => {
     this.setState({ search: text });
-    this.filteredProduct(text);
+  };
+
+  handleLocation = text => {
+    if (text === 'All') {
+      return this.setState({ location: '' });
+    }
+    this.setState({ location: text });
+  };
+
+  filteredProduct = () => {
+    let productList = [];
+    const search = this.state.search.toLowerCase();
+    const location = this.state.location.toLowerCase();
+
+    productList = this.state.products.filter(item => {
+      return (
+        item.title.toLowerCase().includes(search) &&
+        item.location.toLowerCase().includes(location)
+      );
+    });
+
+    this.setState({ filteredProductList: productList });
   };
 
   render() {
     return (
       <React.Fragment>
         <Header handleSearch={this.handleSearch} />
-        <Filter />
+        <Filter
+          handleLocation={this.handleLocation}
+          currentLocation={this.state.location}
+        />
         {this.state.products.length > 0 && (
           <Products filteredProduct={this.state.filteredProductList} />
         )}

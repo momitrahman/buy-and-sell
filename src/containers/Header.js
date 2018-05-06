@@ -6,12 +6,16 @@ class Header extends React.Component {
     searchInput: ''
   };
 
-  handleSearch = event => {
+  handleSearchInput = event => {
     this.setState({ searchInput: event.target.value });
   };
 
-  setSearchTextClick = () => {
-    if (this.state.searchInput) {
+  setSearchText = event => {
+    console.log(event.type);
+    if (
+      this.state.searchInput &&
+      (event.type === 'click' || event.keyCode === 13)
+    ) {
       this.props.handleSearch(this.state.searchInput);
     }
   };
@@ -23,20 +27,13 @@ class Header extends React.Component {
     }
   };
 
-  setSearchTextEnter = event => {
-    if (event.keyCode === 13 && this.state.searchInput) {
-      this.props.handleSearch(this.state.searchInput);
-    }
-  };
-
   render() {
     return (
       <React.Fragment>
         <SearchBar
-          handleSearch={this.handleSearch}
+          handleSearch={this.handleSearchInput}
           value={this.state.searchInput}
-          setSearchTextClick={this.setSearchTextClick}
-          setSearchTextEnter={this.setSearchTextEnter}
+          setSearchText={this.setSearchText}
           setSearchTextClear={this.setSearchTextClear}
         />
       </React.Fragment>

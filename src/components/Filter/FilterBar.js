@@ -16,7 +16,7 @@ const FilterBar = props => {
         icon="ion-ios-location"
         handleModal={props.handleModalLocation}
       >
-        Select Location
+        {props.currentLocation || 'Select Location'}
       </FilterItem>
       <FilterItem
         icon="ion-ios-pricetag"

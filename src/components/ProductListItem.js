@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import moment from 'moment';
 import * as color from '../UI/color';
@@ -52,6 +53,10 @@ const ProductListItem = props => {
       </Info>
     </Item>
   );
+};
+
+ProductListItem.propTypes = {
+  item: PropTypes.object.isRequired
 };
 
 export default ProductListItem;

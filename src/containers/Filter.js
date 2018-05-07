@@ -11,6 +11,7 @@ class Filter extends React.Component {
     locations: []
   };
 
+  // control modal visibility for location
   handleModalLocation = () => {
     this.setState({ modalLocation: !this.state.modalLocation });
     if (this.state.locations.length === 0) {
@@ -18,10 +19,12 @@ class Filter extends React.Component {
     }
   };
 
+  // control modal visibility for category
   handleModalCategory = () => {
     this.setState({ modalCategory: !this.state.modalCategory });
   };
 
+  // Fetch location list from firebase
   fetchLocation = () => {
     base
       .fetch('/locations', {
@@ -32,6 +35,7 @@ class Filter extends React.Component {
       .catch(error => console.log(error));
   };
 
+  // render location list
   selectFilterLocation = locations => {
     const allLocations = locations.map((location, index) => (
       <FilterLocation

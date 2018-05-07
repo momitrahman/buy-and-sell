@@ -24,6 +24,7 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  // Check if  search, location state change then re-render.
   componentDidUpdate(prevProps, prevState) {
     if (
       prevState.search !== this.state.search ||
@@ -33,10 +34,12 @@ class App extends Component {
     }
   }
 
+  // set search text from search bar
   handleSearch = text => {
     this.setState({ search: text });
   };
 
+  // set location from location button
   handleLocation = text => {
     if (text === 'All') {
       return this.setState({ location: '' });
@@ -44,6 +47,7 @@ class App extends Component {
     this.setState({ location: text });
   };
 
+  // filter product list based on search text, location
   filteredProduct = () => {
     let productList = [];
     const search = this.state.search.toLowerCase();

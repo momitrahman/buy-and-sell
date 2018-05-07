@@ -11,6 +11,7 @@ const Icon = styled.i`
   margin-right: 10px;
 `;
 
+// Execute two function in one click
 const modalAndSelectLocation = props => {
   props.handleLocation(props.location);
   props.handleModalLocation();

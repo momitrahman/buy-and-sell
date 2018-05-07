@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import * as color from '../UI/color';
 
@@ -46,13 +47,20 @@ const SearchBar = props => {
     <SearchBox>
       <Input
         value={props.value}
-        onChange={props.handleSearch}
+        onChange={props.handleSearchInput}
         onKeyDown={props.setSearchText}
       />
       <Icon onClick={props.setSearchText} className="ion-ios-search-strong" />
       <ClearIcon onClick={props.setSearchTextClear} className="ion-close" />
     </SearchBox>
   );
+};
+
+SearchBar.propType = {
+  handleSearchInput: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  setSearchText: PropTypes.func.isRequired,
+  setSearchTextClear: PropTypes.func.isRequired
 };
 
 export default SearchBar;

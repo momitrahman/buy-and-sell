@@ -19,7 +19,7 @@ const Content = styled.div`
   position: absolute;
   top: 100px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   overflow: auto;
   z-index: 100;
 `;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Location = styled.div`
@@ -17,11 +18,18 @@ const modalAndSelectLocation = props => {
   props.handleModal();
 };
 
-const FilterLocation = props => (
+const FilterLocationItem = props => (
   <Location onClick={() => modalAndSelectLocation(props)}>
     <Icon className={props.icon} />
     {props.location}
   </Location>
 );
 
-export default FilterLocation;
+FilterLocationItem.propType = {
+  location: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  handleLocation: PropTypes.func.isRequired,
+  handleModal: PropTypes.func.isRequired
+};
+
+export default FilterLocationItem;

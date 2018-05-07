@@ -12,6 +12,7 @@ const Button = styled.button`
   background-color: ${color.colorG};
   width: 250px;
   padding: 10px 5px;
+  text-transform: capitalize;
 `;
 
 const Icon = styled.i`

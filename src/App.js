@@ -9,7 +9,8 @@ class App extends Component {
     products: [],
     filteredProductList: [],
     search: '',
-    location: ''
+    location: '',
+    category: ''
   };
 
   componentDidMount() {
@@ -47,6 +48,14 @@ class App extends Component {
     this.setState({ location: text });
   };
 
+  // set category from location button
+  handleCategory = text => {
+    if (text === 'All') {
+      return this.setState({ category: '' });
+    }
+    this.setState({ category: text });
+  };
+
   // filter product list based on search text, location
   filteredProduct = () => {
     let productList = [];
@@ -70,6 +79,8 @@ class App extends Component {
         <Filter
           handleLocation={this.handleLocation}
           currentLocation={this.state.location}
+          handleCategory={this.handleCategory}
+          currentCategory={this.state.category}
         />
         {this.state.products.length > 0 && (
           <Products filteredProduct={this.state.filteredProductList} />

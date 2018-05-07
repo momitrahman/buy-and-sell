@@ -14,12 +14,12 @@ const Icon = styled.i`
 // Execute two function in one click
 const modalAndSelectLocation = props => {
   props.handleLocation(props.location);
-  props.handleModalLocation();
+  props.handleModal();
 };
 
 const FilterLocation = props => (
   <Location onClick={() => modalAndSelectLocation(props)}>
-    <Icon className="ion-arrow-right-c" />
+    <Icon className={props.icon} />
     {props.location}
   </Location>
 );

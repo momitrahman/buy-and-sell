@@ -22,7 +22,7 @@ const filterCategoryList = props => {
       <FilterCategoryItem
         key={0}
         categoryTitle={'All'}
-        handleCategory={props.handleCategory}
+        handleSubcategory={props.handleSubcategory}
         handleModal={props.handleModal}
         icon="ion-android-home"
       />

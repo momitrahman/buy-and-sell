@@ -24,7 +24,7 @@ class Filter extends React.Component {
   // control modal visibility for category
   handleModalCategory = () => {
     this.setState({ modalCategory: !this.state.modalCategory });
-    if (this.state.locations.length === 0) {
+    if (this.state.category.length === 0) {
       this.fetchCategory();
     }
   };
@@ -52,6 +52,9 @@ class Filter extends React.Component {
 
   // Set subcategory list on click
   handleSubcategory = categoryTitle => {
+    if (categoryTitle === 'All') {
+      return this.setState({ subcategory: [], modalCategory: false });
+    }
     const subcategory = this.state.category[categoryTitle];
     this.setState({ subcategory: subcategory });
   };

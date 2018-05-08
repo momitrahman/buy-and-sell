@@ -29,9 +29,11 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (
       prevState.search !== this.state.search ||
-      prevState.location !== this.state.location
+      prevState.location !== this.state.location ||
+      prevState.category !== this.state.category
     ) {
       this.filteredProduct();
+      console.log('run');
     }
   }
 
@@ -59,13 +61,26 @@ class App extends Component {
   // filter product list based on search text, location
   filteredProduct = () => {
     let productList = [];
-    const search = this.state.search.toLowerCase();
-    const location = this.state.location.toLowerCase();
+    const search = this.state.search;
+    const location = text =>
+      this.state.location.toLowerCase()
+        ? this.state.location.toLowerCase() === text
+          ? true
+          : false
+        : true;
+
+    const category = text =>
+      this.state.category
+        ? this.state.category.toLowerCase() === text
+          ? true
+          : false
+        : true;
 
     productList = this.state.products.filter(item => {
       return (
         item.title.toLowerCase().includes(search) &&
-        item.location.toLowerCase().includes(location)
+        location(item.location.toLowerCase()) &&
+        category(item.subcategory.toLowerCase())
       );
     });
 

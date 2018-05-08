@@ -1,6 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Subcategory = styled.div`
+  display: block;
+  text-transform: capitalize;
+  cursor: pointer;
+`;
+
 // Execute two function in one click
 const modalAndSelectCategory = (props, item) => {
   props.handleCategory(item);
@@ -9,9 +15,12 @@ const modalAndSelectCategory = (props, item) => {
 
 const FilterSubcategory = props =>
   props.subcategory.map((item, index) => (
-    <div key={index} onClick={() => modalAndSelectCategory(props, item)}>
+    <Subcategory
+      key={index}
+      onClick={() => modalAndSelectCategory(props, item)}
+    >
       {item}
-    </div>
+    </Subcategory>
   ));
 
 export default FilterSubcategory;

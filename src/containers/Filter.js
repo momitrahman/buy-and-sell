@@ -53,7 +53,9 @@ class Filter extends React.Component {
   // Set subcategory list on click
   handleSubcategory = categoryTitle => {
     if (categoryTitle === 'All') {
-      return this.setState({ subcategory: [], modalCategory: false });
+      this.setState({ subcategory: [], modalCategory: false });
+      this.props.handleCategory('');
+      return;
     }
     const subcategory = this.state.category[categoryTitle];
     this.setState({ subcategory: subcategory });

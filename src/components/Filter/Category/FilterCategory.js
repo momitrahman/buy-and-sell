@@ -3,8 +3,9 @@ import FilterItem from '../FilterItem';
 import FilterCategoryItem from './FilterCategoryItem';
 import FilterSubcategory from './FilterSubcategory';
 import Modal from '../../Modal';
+import FilterCategoryBox from '../../../UI/FilterCategoryBox';
 
-// render location list
+// render category list
 const filterCategoryList = props => {
   const allCategory = Object.keys(props.category).map(
     (categoryTitle, index) => (
@@ -33,7 +34,7 @@ const filterCategoryList = props => {
 
 const FilterCategory = props => (
   <React.Fragment>
-    <FilterItem icon="ion-ios-location" handleModal={props.handleModal}>
+    <FilterItem icon="ion-ios-pricetag" handleModal={props.handleModal}>
       {props.currentCategory || 'Select Category'}
     </FilterItem>
     <Modal
@@ -42,16 +43,22 @@ const FilterCategory = props => (
       title="Select Category"
       handleModal={props.handleModal}
     >
-      {Object.keys(props.category).length > 0
-        ? filterCategoryList(props)
-        : 'Select Category'}
-      {props.subcategory.length > 0 && (
-        <FilterSubcategory
-          handleModal={props.handleModal}
-          handleCategory={props.handleCategory}
-          subcategory={props.subcategory}
-        />
-      )}
+      <FilterCategoryBox>
+        <div>
+          {Object.keys(props.category).length > 0
+            ? filterCategoryList(props)
+            : 'Select Category'}
+        </div>
+        <div>
+          {props.subcategory.length > 0 && (
+            <FilterSubcategory
+              handleModal={props.handleModal}
+              handleCategory={props.handleCategory}
+              subcategory={props.subcategory}
+            />
+          )}
+        </div>
+      </FilterCategoryBox>
     </Modal>
   </React.Fragment>
 );

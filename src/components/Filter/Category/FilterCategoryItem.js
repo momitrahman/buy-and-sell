@@ -14,8 +14,8 @@ const Icon = styled.i`
 
 const FilterCategoryItem = props => (
   <Category onClick={() => props.handleSubcategory(props.categoryTitle)}>
-    {props.categoryTitle.split('_').join(' ')}
     <Icon className={props.icon} />
+    {props.categoryTitle.split('_').join(' ')}
   </Category>
 );
 

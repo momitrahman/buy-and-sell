@@ -52,9 +52,6 @@ class App extends Component {
 
   // set category from location button
   handleCategory = text => {
-    if (text === 'All') {
-      return this.setState({ category: '' });
-    }
     this.setState({ category: text });
   };
 

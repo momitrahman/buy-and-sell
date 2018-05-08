@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import FilterItem from '../FilterItem';
 import FilterCategoryItem from './FilterCategoryItem';
+import FilterSubcategory from './FilterSubcategory';
 import Modal from '../../Modal';
 
 // render location list
@@ -10,11 +10,9 @@ const filterCategoryList = props => {
     (categoryTitle, index) => (
       <FilterCategoryItem
         key={index + 1}
-        categoryTitle={categoryTitle.split('_').join(' ')}
-        subcategory={props.category[categoryTitle]}
-        handleCategory={props.handleCategory}
-        handleModal={props.handleModal}
+        categoryTitle={categoryTitle}
         icon="ion-arrow-right-c"
+        handleSubcategory={props.handleSubcategory}
       />
     )
   );
@@ -47,16 +45,15 @@ const FilterCategory = props => (
       {Object.keys(props.category).length > 0
         ? filterCategoryList(props)
         : 'Select Category'}
+      {props.subcategory.length > 0 && (
+        <FilterSubcategory
+          handleModal={props.handleModal}
+          handleCategory={props.handleCategory}
+          subcategory={props.subcategory}
+        />
+      )}
     </Modal>
   </React.Fragment>
 );
-
-FilterCategory.propType = {
-  visible: PropTypes.bool,
-  category: PropTypes.object,
-  currentCategory: PropTypes.string,
-  handleModal: PropTypes.func,
-  handleCategory: PropTypes.func
-};
 
 export default FilterCategory;

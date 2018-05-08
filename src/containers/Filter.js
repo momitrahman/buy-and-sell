@@ -9,7 +9,8 @@ class Filter extends React.Component {
     modalLocation: false,
     modalCategory: false,
     locations: [],
-    category: []
+    category: [],
+    subcategory: []
   };
 
   // control modal visibility for location
@@ -49,6 +50,12 @@ class Filter extends React.Component {
       .catch(error => console.log(error));
   };
 
+  // Set subcategory list on click
+  handleSubcategory = categoryTitle => {
+    const subcategory = this.state.category[categoryTitle];
+    this.setState({ subcategory: subcategory });
+  };
+
   render() {
     return (
       <FilterBox>
@@ -66,6 +73,8 @@ class Filter extends React.Component {
           handleModal={this.handleModalCategory}
           currentCategory={this.props.currentCategory}
           handleCategory={this.props.handleCategory}
+          handleSubcategory={this.handleSubcategory}
+          subcategory={this.state.subcategory}
         />
       </FilterBox>
     );

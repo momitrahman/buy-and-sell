@@ -1,12 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import * as color from '../../UI/color';
 
 const SortBySelect = styled.select`
-  color: green;
+  font-size: 16px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: ${color.colorG};
+  width: 200px;
+  padding: 13px 12px;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const SortByOption = styled.option`
-  color: red;
+  background-color: white;
+  color: #1b1f23;
+  font-size: 16px;
+  border-radius: 5px;
 `;
 
 const sortBy = props => {

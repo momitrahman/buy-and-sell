@@ -9,7 +9,7 @@ const Button = styled.button`
   border-radius: 5px;
   color: white;
   background-color: ${color.colorG};
-  width: 150px;
+  width: 200px;
   padding: 10px 5px;
   text-transform: capitalize;
   white-space: nowrap;

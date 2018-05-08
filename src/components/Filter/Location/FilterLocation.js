@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import FilterItem from '../FilterItem';
 import FilterLocationItem from './FilterLocationItem';
 import Modal from '../../Modal';
@@ -33,27 +32,17 @@ const filterLocationList = props => {
 const FilterLocation = props => (
   <React.Fragment>
     <FilterItem icon="ion-ios-location" handleModal={props.handleModal}>
-      {props.currentLocation || 'Select Location'}
+      {props.currentLocation || 'Location'}
     </FilterItem>
     <Modal
       close
       visible={props.visible}
-      title="Select Location"
+      title="Location"
       handleModal={props.handleModal}
     >
-      {props.locations.length > 0
-        ? filterLocationList(props)
-        : 'Select Location'}
+      {props.locations.length > 0 ? filterLocationList(props) : 'Location'}
     </Modal>
   </React.Fragment>
 );
-
-FilterLocation.propType = {
-  visible: PropTypes.bool,
-  locations: PropTypes.object,
-  currentLocation: PropTypes.string,
-  handleModal: PropTypes.func,
-  handleLocation: PropTypes.func
-};
 
 export default FilterLocation;

@@ -15,7 +15,7 @@ const Input = styled.input`
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   font-size: 20px;
-  width: 470px;
+  width: 550px;
 
   &:focus {
     outline: none;
@@ -35,8 +35,8 @@ const Icon = styled.span`
 `;
 
 const ClearIcon = styled(Icon)`
-  width: 30px;
-  padding-left: 10px;
+  width: 50px;
+  padding-left: 15px;
   background-color: ${color.colorR};
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;

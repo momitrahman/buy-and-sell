@@ -5,7 +5,7 @@ import moment from 'moment';
 import * as color from '../UI/color';
 
 const Item = styled.div`
-  width: 550px;
+  width: 650px;
   display: flex;
   margin: 30px 10px;
   border-radius: 5px;

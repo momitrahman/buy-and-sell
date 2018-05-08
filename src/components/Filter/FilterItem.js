@@ -3,16 +3,17 @@ import styled from 'styled-components';
 import * as color from '../../UI/color';
 
 const Button = styled.button`
-  display: block;
-  font-size: 18px;
+  font-size: 16px;
   text-decoration: none;
   border: none;
   border-radius: 5px;
   color: white;
   background-color: ${color.colorG};
-  width: 250px;
+  width: 150px;
   padding: 10px 5px;
   text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const Icon = styled.i`

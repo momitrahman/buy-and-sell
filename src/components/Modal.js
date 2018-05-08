@@ -15,7 +15,7 @@ const Backdrop = styled.div`
 
 const Content = styled.div`
   background-color: white;
-  width: 550px;
+  width: 650px;
   position: absolute;
   top: 100px;
   left: 50%;

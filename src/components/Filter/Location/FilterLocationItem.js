@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Location = styled.div`
   font-size: 16px;
   cursor: pointer;
+  margin-left: 50px;
 `;
 
 const Icon = styled.i`
@@ -24,12 +25,5 @@ const FilterLocationItem = props => (
     {props.location}
   </Location>
 );
-
-FilterLocationItem.propType = {
-  location: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
-  handleLocation: PropTypes.func.isRequired,
-  handleModal: PropTypes.func.isRequired
-};
 
 export default FilterLocationItem;

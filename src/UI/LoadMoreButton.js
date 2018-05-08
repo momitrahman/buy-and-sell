@@ -8,7 +8,7 @@ const LoadMoreButton = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  width: 550px;
+  width: 650px;
   margin: 10px;
   background-color: ${color.colorB};
   box-shadow: 0 0 1px black;

@@ -35,19 +35,19 @@ const filterCategoryList = props => {
 const FilterCategory = props => (
   <React.Fragment>
     <FilterItem icon="ion-ios-pricetag" handleModal={props.handleModal}>
-      {props.currentCategory || 'Select Category'}
+      {props.currentCategory || 'Category'}
     </FilterItem>
     <Modal
       close
       visible={props.visible}
-      title="Select Category"
+      title="Category"
       handleModal={props.handleModal}
     >
       <FilterCategoryBox>
         <div>
           {Object.keys(props.category).length > 0
             ? filterCategoryList(props)
-            : 'Select Category'}
+            : 'Category'}
         </div>
         <div>
           {props.subcategory.length > 0 && (

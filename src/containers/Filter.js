@@ -3,6 +3,7 @@ import base from '../firebase';
 import FilterBox from '../UI/FilterBox';
 import FilterLocation from '../components/Filter/Location/FilterLocation';
 import FilterCategory from '../components/Filter/Category/FilterCategory';
+import SortBy from '../components/Filter/SortBy';
 
 class Filter extends React.Component {
   state = {
@@ -80,6 +81,10 @@ class Filter extends React.Component {
           handleCategory={this.props.handleCategory}
           handleSubcategory={this.handleSubcategory}
           subcategory={this.state.subcategory}
+        />
+        <SortBy
+          handleSortBy={this.props.handleSortBy}
+          currentSortBy={this.props.currentSortBy}
         />
       </FilterBox>
     );

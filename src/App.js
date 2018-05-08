@@ -10,7 +10,8 @@ class App extends Component {
     filteredProductList: [],
     search: '',
     location: '',
-    category: ''
+    category: '',
+    sortBy: 'dateNewToOld'
   };
 
   componentDidMount() {
@@ -33,7 +34,11 @@ class App extends Component {
       prevState.category !== this.state.category
     ) {
       this.filteredProduct();
-      console.log('run');
+      console.log('filter');
+    }
+    if (prevState.sortBy !== this.state.sortBy) {
+      this.sortBy();
+      console.log('sort');
     }
   }
 
@@ -50,9 +55,14 @@ class App extends Component {
     this.setState({ location: text });
   };
 
-  // set category from location button
+  // set category from category button
   handleCategory = text => {
     this.setState({ category: text });
+  };
+
+  // set sortBy from sortBy dropdown
+  handleSortBy = event => {
+    this.setState({ sortBy: event.target.value });
   };
 
   // filter product list based on search text, location
@@ -73,15 +83,34 @@ class App extends Component {
           : false
         : true;
 
-    productList = this.state.products.filter(item => {
+    productList = this.state.products.filter(product => {
       return (
-        item.title.toLowerCase().includes(search) &&
-        location(item.location.toLowerCase()) &&
-        category(item.subcategory.toLowerCase())
+        product.title.toLowerCase().includes(search) &&
+        location(product.location.toLowerCase()) &&
+        category(product.subcategory.toLowerCase())
       );
     });
 
     this.setState({ filteredProductList: productList });
+  };
+
+  // Sort Filtered Products List
+
+  sortBy = () => {
+    const currentSortBy = this.state.sortBy;
+    const filteredProductList = this.state.filteredProductList;
+    let sortByList;
+    if (currentSortBy === 'priceLowToHigh') {
+      sortByList = filteredProductList.sort((a, b) => a.prize - b.prize);
+    } else if (currentSortBy === 'priceHighToLow') {
+      sortByList = filteredProductList.sort((a, b) => b.prize - a.prize);
+    } else if (currentSortBy === 'dateNewToOld') {
+      sortByList = filteredProductList.sort((a, b) => b.time - a.time);
+    } else if (currentSortBy === 'dateOldToNew') {
+      sortByList = filteredProductList.sort((a, b) => a.time - b.time);
+    }
+    this.setState({ filteredProductList: sortByList });
+    console.log('Sort Func');
   };
 
   render() {
@@ -93,6 +122,8 @@ class App extends Component {
           currentLocation={this.state.location}
           handleCategory={this.handleCategory}
           currentCategory={this.state.category}
+          handleSortBy={this.handleSortBy}
+          currentSortBy={this.state.sortBy}
         />
         {this.state.products.length > 0 && (
           <Products filteredProduct={this.state.filteredProductList} />

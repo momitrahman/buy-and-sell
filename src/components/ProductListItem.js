@@ -47,7 +47,7 @@ const ProductListItem = props => {
       <Info>
         <Heading>{title}</Heading>
         <LocationTime>
-          {location} ‒ {moment(moment(time).format()).fromNow()}
+          {location} ‒ {moment(moment.unix(time).format()).fromNow()}
         </LocationTime>
         <Prize>৳ {prize}</Prize>
       </Info>

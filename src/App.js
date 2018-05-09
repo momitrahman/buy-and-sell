@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import base from './firebase';
+import firebase from 'firebase';
+
 import Products from './containers/Products';
 import Header from './containers/Header';
+import Search from './containers/Search';
 import Filter from './containers/Filter';
 
 class App extends Component {
@@ -11,7 +14,8 @@ class App extends Component {
     search: '',
     location: '',
     category: '',
-    sortBy: 'dateNewToOld'
+    sortBy: 'dateNewToOld',
+    user: []
   };
 
   componentDidMount() {
@@ -24,6 +28,7 @@ class App extends Component {
         this.setState({ products: data, filteredProductList: data })
       )
       .catch(error => console.log(error));
+    this.auth();
   }
 
   // Check if  search, location state change then re-render.
@@ -34,11 +39,8 @@ class App extends Component {
       prevState.category !== this.state.category
     ) {
       this.filteredProduct();
-      console.log('filter');
-    }
-    if (prevState.sortBy !== this.state.sortBy) {
+    } else if (prevState.sortBy !== this.state.sortBy) {
       this.sortBy();
-      console.log('sort');
     }
   }
 
@@ -68,7 +70,7 @@ class App extends Component {
   // filter product list based on search text, location
   filteredProduct = () => {
     let productList = [];
-    const search = this.state.search;
+    const search = this.state.search.toLowerCase();
     const location = text =>
       this.state.location.toLowerCase()
         ? this.state.location.toLowerCase() === text
@@ -110,13 +112,22 @@ class App extends Component {
       sortByList = filteredProductList.sort((a, b) => a.time - b.time);
     }
     this.setState({ filteredProductList: sortByList });
-    console.log('Sort Func');
   };
+
+  auth = () =>
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.setState({ user: user });
+      } else {
+        this.setState({ user: '' });
+      }
+    });
 
   render() {
     return (
       <React.Fragment>
-        <Header handleSearch={this.handleSearch} />
+        <Header user={this.state.user} />
+        <Search handleSearch={this.handleSearch} />
         <Filter
           handleLocation={this.handleLocation}
           currentLocation={this.state.location}

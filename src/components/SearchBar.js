@@ -49,6 +49,7 @@ const SearchBar = props => {
         value={props.value}
         onChange={props.handleSearchInput}
         onKeyDown={props.setSearchText}
+        placeholder="Search Here"
       />
       <Icon onClick={props.setSearchText} className="ion-ios-search-strong" />
       <ClearIcon onClick={props.setSearchTextClear} className="ion-close" />

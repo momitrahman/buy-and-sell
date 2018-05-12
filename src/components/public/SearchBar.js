@@ -15,7 +15,7 @@ const Input = styled.input`
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   font-size: 20px;
-  width: 550px;
+  width: 600px;
 
   &:focus {
     outline: none;
@@ -23,23 +23,15 @@ const Input = styled.input`
   }
 `;
 
-const Icon = styled.span`
-  display: block;
+const ClearIcon = styled.div`
   font-size: 25px;
   color: white;
-  background-color: ${color.colorB};
-  width: 50px;
-  padding-left: 15px;
-  flex: 1;
-  cursor: pointer;
-`;
-
-const ClearIcon = styled(Icon)`
   width: 50px;
   padding-left: 15px;
   background-color: ${color.colorR};
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  cursor: pointer;
 `;
 
 const SearchBar = props => {
@@ -47,11 +39,9 @@ const SearchBar = props => {
     <SearchBox>
       <Input
         value={props.value}
-        onChange={props.handleSearchInput}
-        onKeyDown={props.setSearchText}
+        onChange={props.setSearchText}
         placeholder="Search Here"
       />
-      <Icon onClick={props.setSearchText} className="ion-ios-search-strong" />
       <ClearIcon onClick={props.setSearchTextClear} className="ion-close" />
     </SearchBox>
   );

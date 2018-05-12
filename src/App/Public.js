@@ -13,8 +13,7 @@ class Public extends Component {
     search: '',
     location: '',
     category: '',
-    sortBy: 'dateNewToOld',
-    user: []
+    sortBy: 'dateNewToOld'
   };
 
   componentDidMount() {
@@ -27,7 +26,6 @@ class Public extends Component {
         this.setState({ products: data, filteredProductList: data })
       )
       .catch(error => console.log(error));
-    this.auth();
   }
 
   // Check if  search, location state change then re-render.
@@ -113,19 +111,10 @@ class Public extends Component {
     this.setState({ filteredProductList: sortByList });
   };
 
-  auth = () =>
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.setState({ user: user });
-      } else {
-        this.setState({ user: '' });
-      }
-    });
-
   render() {
     return (
       <React.Fragment>
-        <Search handleSearch={this.handleSearch} />
+        <Search handleSearch={this.handleSearch} search={this.state.search} />
         <Filter
           handleLocation={this.handleLocation}
           currentLocation={this.state.location}

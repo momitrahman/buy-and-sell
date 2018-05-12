@@ -2,23 +2,32 @@ import React from 'react';
 import styled from 'styled-components';
 import firebase from 'firebase';
 
-const Name = styled.div`
-  font-size: 16px;
-  &:hover,
-  menu {
+const Dropdown = styled.div`
+  background-color: green;
+  &:hover > .show-menu {
     display: block;
   }
+`;
+
+const Name = styled.div`
+  font-size: 16px;
 `;
 
 const Logout = styled.div`
   font-size: 16px;
 `;
 
+const Menu = styled.div`
+  display: none;
+`;
+
 const UserMenu = props => (
-  <React.Fragment>
+  <Dropdown>
     <Name>{props.name}</Name>
-    <Logout onClick={() => firebase.auth().signOut()}>Sign Out</Logout>
-  </React.Fragment>
+    <Menu className="show-menu">
+      <Logout onClick={() => firebase.auth().signOut()}>Sign Out</Logout>
+    </Menu>
+  </Dropdown>
 );
 
 export default UserMenu;

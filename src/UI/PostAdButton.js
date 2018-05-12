@@ -3,9 +3,8 @@ import * as color from './color';
 
 const PostAddButton = styled.div`
   font-size: 20px;
+  padding: 5px;
   background-color: ${color.colorG};
-  padding: 15px 10px;
-  width: 150px;
   cursor: pointer;
 `;
 

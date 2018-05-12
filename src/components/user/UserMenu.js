@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import firebase from 'firebase';
 
 const Dropdown = styled.div`
-  background-color: green;
   &:hover > .show-menu {
     display: block;
   }
@@ -23,7 +22,7 @@ const Menu = styled.div`
 
 const UserMenu = props => (
   <Dropdown>
-    <Name>{props.name}</Name>
+    <Name>{props.user.displayName}</Name>
     <Menu className="show-menu">
       <Logout onClick={() => firebase.auth().signOut()}>Sign Out</Logout>
     </Menu>

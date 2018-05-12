@@ -1,11 +1,11 @@
 import React from 'react';
 import firebase from 'firebase';
 
-import HeaderBar from '../../components/user/HeaderBar';
 import Modal from '../../components/Modal';
+import PostAdButton from '../../UI/PostAdButton';
 import AuthButton from '../../UI/AuthButton';
 
-class Header extends React.Component {
+class AuthBox extends React.Component {
   state = { modal: false };
 
   // Handle modal visibility
@@ -23,11 +23,11 @@ class Header extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <HeaderBar handleModal={this.handleModal} user={this.props.user} />
+        <PostAdButton onClick={this.handleModal}>Post Your Add</PostAdButton>
         <Modal
           close
           visible={this.state.modal}
-          title="Post Your Ad"
+          title="Sign IN / UP"
           handleModal={this.handleModal}
         >
           <div>
@@ -44,4 +44,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default AuthBox;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import * as color from '../UI/color';
+import * as color from '../../UI/color';
 
 const SearchBox = styled.div`
   display: flex;

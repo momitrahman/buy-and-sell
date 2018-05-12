@@ -1,9 +1,9 @@
 import React from 'react';
 import firebase from 'firebase';
 
-import HeaderBar from '../components/HeaderBar';
-import Modal from '../components/Modal';
-import AuthButton from '../UI/AuthButton';
+import HeaderBar from '../../components/user/HeaderBar';
+import Modal from '../../components/Modal';
+import AuthButton from '../../UI/AuthButton';
 
 class Header extends React.Component {
   state = { modal: false };

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import * as color from '../UI/color';
-import PostAdButton from '../UI/PostAdButton';
+import * as color from '../../UI/color';
+import PostAdButton from '../../UI/PostAdButton';
 import UserMenu from './UserMenu';
 
 const Header = styled.div`

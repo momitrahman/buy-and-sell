@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import * as color from '../../UI/color';
+import * as color from '../../../UI/color';
 
 const SortBySelect = styled.select`
   font-size: 16px;

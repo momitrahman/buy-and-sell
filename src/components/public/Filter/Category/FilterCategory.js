@@ -2,8 +2,8 @@ import React from 'react';
 import FilterItem from '../FilterItem';
 import FilterCategoryItem from './FilterCategoryItem';
 import FilterSubcategory from './FilterSubcategory';
-import Modal from '../../Modal';
-import FilterCategoryBox from '../../../UI/FilterCategoryBox';
+import Modal from '../../../Modal';
+import FilterCategoryBox from '../../../../UI/FilterCategoryBox';
 
 // render category list
 const filterCategoryList = props => {

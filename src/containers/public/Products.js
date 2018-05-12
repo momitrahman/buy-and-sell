@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductListItem from '../components/ProductListItem';
-import LoadMoreButton from '../UI/LoadMoreButton';
+import ProductListItem from '../../components/public/ProductListItem';
+import LoadMoreButton from '../../UI/LoadMoreButton';
 
 class Products extends React.Component {
   state = {

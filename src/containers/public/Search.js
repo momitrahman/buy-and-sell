@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../../components/public/SearchBar';
 
 class Search extends React.Component {
   state = {

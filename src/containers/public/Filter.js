@@ -1,9 +1,10 @@
 import React from 'react';
-import base from '../firebase';
-import FilterBox from '../UI/FilterBox';
-import FilterLocation from '../components/Filter/Location/FilterLocation';
-import FilterCategory from '../components/Filter/Category/FilterCategory';
-import SortBy from '../components/Filter/SortBy';
+import base from '../../firebase';
+
+import FilterBox from '../../UI/FilterBox';
+import FilterLocation from '../../components/public/Filter/Location/FilterLocation';
+import FilterCategory from '../../components/public/Filter/Category/FilterCategory';
+import SortBy from '../../components/public/Filter/SortBy';
 
 class Filter extends React.Component {
   state = {

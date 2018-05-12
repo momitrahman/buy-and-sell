@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import moment from 'moment';
-import * as color from '../UI/color';
+import * as color from '../../UI/color';
 
 const Item = styled.div`
   width: 650px;

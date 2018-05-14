@@ -39,19 +39,18 @@ const SearchBar = props => {
     <SearchBox>
       <Input
         value={props.value}
-        onChange={props.setSearchText}
+        onChange={props.handleSearch}
         placeholder="Search Here"
       />
-      <ClearIcon onClick={props.setSearchTextClear} className="ion-close" />
+      <ClearIcon onClick={props.handleClearSearch} className="ion-close" />
     </SearchBox>
   );
 };
 
-SearchBar.propType = {
-  handleSearchInput: PropTypes.func.isRequired,
+SearchBar.propTypes = {
   value: PropTypes.string.isRequired,
-  setSearchText: PropTypes.func.isRequired,
-  setSearchTextClear: PropTypes.func.isRequired
+  handleSearch: PropTypes.func.isRequired,
+  handleClearSearch: PropTypes.func.isRequired
 };
 
 export default SearchBar;

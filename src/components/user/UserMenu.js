@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import firebase from 'firebase';
+import PropTypes from 'prop-types';
 
 const Dropdown = styled.div`
   &:hover > .show-menu {
@@ -28,5 +29,9 @@ const UserMenu = props => (
     </Menu>
   </Dropdown>
 );
+
+UserMenu.propTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default UserMenu;

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Public from './App/Public';
 import Header from './containers/Header';
+import Public from './App/Public';
 
 class App extends Component {
   state = {
-    user: true
+    user: ''
   };
 
   componentDidMount() {
@@ -27,7 +28,16 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header user={this.state.user} />
-        <Public />
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Public} />
+            <Route
+              exact
+              path="/add"
+              component={() => (this.state.user ? 'HEADER' : 'BETTER')}
+            />
+          </Switch>
+        </BrowserRouter>
       </React.Fragment>
     );
   }

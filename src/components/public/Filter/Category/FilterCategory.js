@@ -3,7 +3,7 @@ import FilterItem from '../FilterItem';
 import FilterCategoryItem from './FilterCategoryItem';
 import FilterSubcategory from './FilterSubcategory';
 import Modal from '../../../Modal';
-import FilterCategoryBox from '../../../../UI/FilterCategoryBox';
+import FilterCategoryBox from '../../../../UI/Box/FilterCategoryBox';
 
 // render category list
 const filterCategoryList = props => {

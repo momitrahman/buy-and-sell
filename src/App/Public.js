@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import base from '../firebase';
-import firebase from 'firebase';
 
 import Products from '../containers/public/Products';
-import Search from '../containers/public/Search';
+import SearchBar from '../components/public/SearchBar';
 import Filter from '../containers/public/Filter';
 
 class Public extends Component {
@@ -42,8 +41,13 @@ class Public extends Component {
   }
 
   // set search text from search bar
-  handleSearch = text => {
-    this.setState({ search: text });
+  handleSearch = event => {
+    this.setState({ search: event.target.value });
+  };
+
+  // clear search text on click
+  handleClearSearch = () => {
+    this.setState({ search: '' });
   };
 
   // set location from location button
@@ -94,7 +98,6 @@ class Public extends Component {
   };
 
   // Sort Filtered Products List
-
   sortBy = () => {
     const currentSortBy = this.state.sortBy;
     const filteredProductList = this.state.filteredProductList;
@@ -114,7 +117,11 @@ class Public extends Component {
   render() {
     return (
       <React.Fragment>
-        <Search handleSearch={this.handleSearch} search={this.state.search} />
+        <SearchBar
+          value={this.state.search}
+          handleSearch={this.handleSearch}
+          handleClearSearch={this.handleClearSearch}
+        />
         <Filter
           handleLocation={this.handleLocation}
           currentLocation={this.state.location}

@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
-import UserMenu from '../components/user/UserMenu';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-class User extends Component {
+import AddProduct from '../containers/user/AddProduct';
+
+class User extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <UserMenu user={this.props.user} />
+        <Switch>
+          <Route exact path="/user/add" component={AddProduct} />
+        </Switch>
       </React.Fragment>
     );
   }

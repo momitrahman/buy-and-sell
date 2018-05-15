@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Header from './containers/Header';
 import Public from './App/Public';
+import User from './App/User';
 
 class App extends Component {
   state = {
@@ -28,16 +29,10 @@ class App extends Component {
     return (
       <React.Fragment>
         <Header user={this.state.user} />
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={Public} />
-            <Route
-              exact
-              path="/add"
-              component={() => (this.state.user ? 'HEADER' : 'BETTER')}
-            />
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Public} />
+          <Route path="/user" component={User} />
+        </Switch>
       </React.Fragment>
     );
   }

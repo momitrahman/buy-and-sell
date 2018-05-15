@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Title = styled.label`
   display: block;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: capitalize;
 `;
 

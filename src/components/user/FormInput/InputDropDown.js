@@ -15,7 +15,7 @@ const Select = styled.select`
   border-radius: 5px;
   background: white;
   margin-top: 5px;
-  color: green;
+  text-transform: capitalize;
 `;
 
 const Options = options =>
@@ -38,7 +38,7 @@ const InputDropDown = props => (
 
 InputDropDown.propTypes = {
   title: PropTypes.string.isRequired,
-  options: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired
 };

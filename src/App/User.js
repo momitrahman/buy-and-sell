@@ -8,7 +8,13 @@ class User extends React.Component {
     return (
       <React.Fragment>
         <Switch>
-          <Route exact path="/user/add" component={AddProduct} />
+          <Route
+            exact
+            path="/user/add"
+            component={props => (
+              <AddProduct {...props} user={this.props.user} />
+            )}
+          />
         </Switch>
       </React.Fragment>
     );

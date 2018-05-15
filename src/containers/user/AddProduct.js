@@ -1,9 +1,10 @@
 import React from 'react';
 import base from '../../firebase';
 
-import InputText from '../../components/user/FormInput/InputText';
-import InputDropDown from '../../components/user/FormInput/InputDropDown';
-import InputTextarea from '../../components/user/FormInput/InputTextarea';
+import InputText from '../../components/user/Form/InputText';
+import InputDropDown from '../../components/user/Form/InputDropDown';
+import InputTextarea from '../../components/user/Form/InputTextarea';
+import SubmitButton from '../../components/user/Form/SubmitButton';
 
 class AddProduct extends React.Component {
   state = {
@@ -64,6 +65,27 @@ class AddProduct extends React.Component {
     });
   };
 
+  handleSubmit = event => {
+    event.preventDefault();
+    base
+      .push('/products', {
+        data: {
+          subcategory: this.state.subcategory,
+          location: this.state.location,
+          title: this.state.title.toLowerCase(),
+          type: this.state.type,
+          price: this.state.price,
+          description: this.state.description,
+          mobile: this.state.mobile,
+          date: Date.now(),
+          uid: this.props.user.uid,
+          email: this.props.user.email
+        }
+      })
+      .then(() => console.log('success'))
+      .catch(error => console.log(error));
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -118,6 +140,8 @@ class AddProduct extends React.Component {
           value={this.state.mobile}
           handleChange={event => this.handleChange(event, 'mobile')}
         />
+
+        <SubmitButton onClick={this.handleSubmit}>SUBMIT</SubmitButton>
       </React.Fragment>
     );
   }

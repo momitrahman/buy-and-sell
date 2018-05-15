@@ -103,9 +103,9 @@ class Public extends Component {
     const filteredProductList = this.state.filteredProductList;
     let sortByList;
     if (currentSortBy === 'priceLowToHigh') {
-      sortByList = filteredProductList.sort((a, b) => a.prize - b.prize);
+      sortByList = filteredProductList.sort((a, b) => a.price - b.price);
     } else if (currentSortBy === 'priceHighToLow') {
-      sortByList = filteredProductList.sort((a, b) => b.prize - a.prize);
+      sortByList = filteredProductList.sort((a, b) => b.price - a.price);
     } else if (currentSortBy === 'dateNewToOld') {
       sortByList = filteredProductList.sort((a, b) => b.time - a.time);
     } else if (currentSortBy === 'dateOldToNew') {

@@ -19,19 +19,29 @@ class App extends Component {
   auth = () =>
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        this.setState({ user: user });
+        this.setState({
+          user: {
+            displayName: user.displayName,
+            email: user.email,
+            uid: user.uid
+          }
+        });
       } else {
         this.setState({ user: '' });
       }
     });
 
   render() {
+    console.log(this.state.user);
     return (
       <React.Fragment>
         <Header user={this.state.user} />
         <Switch>
           <Route exact path="/" component={Public} />
-          <Route path="/user" component={User} />
+          <Route
+            path="/user"
+            component={props => <User {...props} user={this.state.user} />}
+          />
         </Switch>
       </React.Fragment>
     );

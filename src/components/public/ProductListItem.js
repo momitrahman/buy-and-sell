@@ -28,28 +28,29 @@ const Heading = styled.div`
   color: ${color.colorG};
   font-size: 22px;
   margin-bottom: 5px;
+  text-transform: capitalize;
 `;
 
 const LocationTime = styled.div`
   font-size: 16px;
 `;
 
-const Prize = styled.div`
+const Price = styled.div`
   font-size: 18px;
   font-weight: 700;
 `;
 
 const ProductListItem = props => {
-  const { title, location, prize, time } = props.item;
+  const { title, location, price, date } = props.item;
   return (
     <Item>
       <Image src="https://picsum.photos/400/400?random" />
       <Info>
         <Heading>{title}</Heading>
         <LocationTime>
-          {location} ‒ {moment(moment.unix(time).format()).fromNow()}
+          {location} ‒ {moment(moment(date).format()).fromNow()}
         </LocationTime>
-        <Prize>৳ {prize}</Prize>
+        <Price>৳ {price}</Price>
       </Info>
     </Item>
   );

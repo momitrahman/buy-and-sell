@@ -3,6 +3,7 @@ import base from '../firebase';
 import { Route, Switch } from 'react-router-dom';
 
 import AddProduct from '../containers/user/AddProduct';
+import EditProduct from '../containers/user/EditProduct';
 import ProductList from '../components/user/Product/ProductList';
 
 class User extends React.Component {
@@ -35,6 +36,17 @@ class User extends React.Component {
             path="/user/add"
             component={props => (
               <AddProduct {...props} user={this.props.user} />
+            )}
+          />
+          <Route
+            exact
+            path="/user/edit/:key"
+            component={props => (
+              <EditProduct
+                {...props}
+                user={this.props.user}
+                productList={this.state.productList}
+              />
             )}
           />
           <Route

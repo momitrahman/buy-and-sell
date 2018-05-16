@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 import * as color from '../../../UI/color';
@@ -54,10 +55,11 @@ const Action = styled.div`
   justify-content: space-around;
 `;
 
-const Edit = styled.button`
+const Edit = styled(Link)`
   display: block;
   text-decoration: none;
   font-size: 16px;
+  color: black;
   border: none;
   padding: 10px;
   background-color: green;
@@ -69,7 +71,7 @@ const Delete = styled(Edit)`
 `;
 
 const ProductListItem = props => {
-  const { title, location, price, date } = props.item;
+  const { title, location, price, date, key } = props.item;
   return (
     <Item>
       <InfoBox>
@@ -83,8 +85,8 @@ const ProductListItem = props => {
         </Info>
       </InfoBox>
       <Action>
-        <Edit>Edit</Edit>
-        <Delete>Delete</Delete>
+        <Edit to={`/user/edit/${key}`}>Edit</Edit>
+        {/* <Delete>Delete</Delete> */}
       </Action>
     </Item>
   );

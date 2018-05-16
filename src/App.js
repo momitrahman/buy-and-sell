@@ -31,17 +31,26 @@ class App extends Component {
       }
     });
 
+  renderSource = (
+    <React.Fragment>
+      <Route
+        path="/"
+        component={props => <Header {...props} user={this.state.user} />}
+      />
+      <Switch>
+        <Route exact path="/" component={Public} />
+        <Route
+          path="/user"
+          component={props => <User {...props} user={this.state.user} />}
+        />
+      </Switch>
+    </React.Fragment>
+  );
+
   render() {
     return (
       <React.Fragment>
-        <Header user={this.state.user} />
-        <Switch>
-          <Route exact path="/" component={Public} />
-          <Route
-            path="/user"
-            component={props => <User {...props} user={this.state.user} />}
-          />
-        </Switch>
+        {this.state.user ? this.renderSource : 'loading'}
       </React.Fragment>
     );
   }

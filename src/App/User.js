@@ -1,10 +1,31 @@
 import React from 'react';
+import base from '../firebase';
 import { Route, Switch } from 'react-router-dom';
 
 import AddProduct from '../containers/user/AddProduct';
-import ProductList from '../containers/user/ProductList';
+import ProductList from '../components/user/Product/ProductList';
 
 class User extends React.Component {
+  state = {
+    productList: {}
+  };
+
+  componentDidMount() {
+    if (this.props.user.uid) {
+      base
+        .fetch('/products', {
+          context: this,
+          asArray: true,
+          queries: {
+            orderByChild: 'uid',
+            equalTo: this.props.user.uid
+          }
+        })
+        .then(data => this.setState({ productList: data }))
+        .catch(error => console.log(error));
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -20,7 +41,11 @@ class User extends React.Component {
             exact
             path="/user/product-list"
             component={props => (
-              <ProductList {...props} user={this.props.user} />
+              <ProductList
+                {...props}
+                user={this.props.user}
+                productList={this.state.productList}
+              />
             )}
           />
         </Switch>

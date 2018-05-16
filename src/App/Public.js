@@ -74,14 +74,14 @@ class Public extends Component {
     const search = this.state.search.toLowerCase();
     const location = text =>
       this.state.location.toLowerCase()
-        ? this.state.location.toLowerCase() === text
+        ? this.state.location.toLowerCase() === text.toLowerCase()
           ? true
           : false
         : true;
 
     const category = text =>
       this.state.category
-        ? this.state.category.toLowerCase() === text
+        ? this.state.category.toLowerCase() === text.toLowerCase()
           ? true
           : false
         : true;
@@ -89,8 +89,8 @@ class Public extends Component {
     productList = this.state.products.filter(product => {
       return (
         product.title.toLowerCase().includes(search) &&
-        location(product.location.toLowerCase()) &&
-        category(product.subcategory.toLowerCase())
+        location(product.location) &&
+        category(product.subcategory)
       );
     });
 

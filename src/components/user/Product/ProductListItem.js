@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
+import PopConfirm from '../../PopConfirm';
 import * as color from '../../../UI/color';
 
 const Item = styled.div`
@@ -66,9 +67,6 @@ const Edit = styled(Link)`
   cursor: pointer;
 `;
 
-const Delete = styled(Edit)`
-  background-color: orangered;
-`;
 
 const ProductListItem = props => {
   const { title, location, price, date, key } = props.item;
@@ -86,7 +84,7 @@ const ProductListItem = props => {
       </InfoBox>
       <Action>
         <Edit to={`/user/edit/${key}`}>Edit</Edit>
-        {/* <Delete>Delete</Delete> */}
+        <button>Delete</button>
       </Action>
     </Item>
   );

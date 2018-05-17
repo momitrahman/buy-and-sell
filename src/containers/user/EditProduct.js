@@ -10,6 +10,7 @@ class EditProduct extends React.Component {
   state = {
     categoryList: [],
     locationList: [],
+    subcategoryList: [],
     category: '',
     subcategory: '',
     location: '',
@@ -17,12 +18,47 @@ class EditProduct extends React.Component {
     type: 'used',
     price: '',
     description: '',
-    mobile: ''
+    mobile: '',
+    date: ''
   };
 
   componentDidMount() {
     this.setStateInfo();
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.category !== this.state.category) {
+      console.log('DONE');
+      this.fetchLocation();
+      this.fetchCategory();
+    }
+  }
+
+  // Fetch location list from firebase
+  fetchLocation = () => {
+    base
+      .fetch('/locations', {
+        context: this,
+        asArray: true
+      })
+      .then(data => this.setState({ locationList: data }))
+      .catch(error => console.log(error));
+  };
+
+  // Fetch Category list from firebase
+  fetchCategory = () => {
+    base
+      .fetch('/category', {
+        context: this
+      })
+      .then(data => {
+        this.setState({
+          categoryList: data,
+          subcategoryList: data[this.state.category]
+        });
+      })
+      .catch(error => console.log(error));
+  };
 
   setStateInfo = () => {
     if (this.props.productList.length > 0) {
@@ -38,9 +74,10 @@ class EditProduct extends React.Component {
   };
 
   handleCategoryChange = event => {
-    const value = event.target.value;
+    const value = event.target.value.split(' ').join('_');
     this.setState({
-      category: value.split(' ').join('_'),
+      category: value,
+      subcategoryList: this.state.categoryList[value],
       subcategory: this.state.categoryList[value][0]
     });
   };
@@ -50,6 +87,7 @@ class EditProduct extends React.Component {
     base
       .update(`/products/${this.props.match.params.key}`, {
         data: {
+          category: this.state.category,
           subcategory: this.state.subcategory,
           location: this.state.location,
           title: this.state.title.toLowerCase(),
@@ -69,35 +107,55 @@ class EditProduct extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <InputDropDown
+          title="Category"
+          options={Object.keys(this.state.categoryList).map(item =>
+            item.split('_').join(' ')
+          )}
+          value={this.state.category}
+          handleChange={event => this.handleCategoryChange(event)}
+        />
+        <InputDropDown
+          title="Subcategory"
+          options={this.state.subcategoryList}
+          value={this.state.subcategory}
+          handleChange={event => this.handleChange(event, 'subcategory')}
+        />
+        <InputDropDown
+          title="Location"
+          options={this.state.locationList}
+          value={this.state.location}
+          handleChange={event => this.handleChange(event, 'location')}
+        />
         <InputText
           title="Title"
           placeholder="Product Title"
-          value={this.state.title || ''}
+          value={this.state.title}
           handleChange={event => this.handleChange(event, 'title')}
         />
         <InputDropDown
           title="Type"
           options={['used', 'new']}
-          value={this.state.type || ''}
+          value={this.state.type}
           handleChange={event => this.handleChange(event, 'type')}
         />
         <InputText
           title="Price"
           placeholder="Product Price"
-          value={this.state.price || ''}
+          value={this.state.price}
           handleChange={event => this.handleChange(event, 'price')}
         />
 
         <InputTextarea
           title="Description"
           placeholder="Product Details "
-          value={this.state.description || ''}
+          value={this.state.description}
           handleChange={event => this.handleChange(event, 'description')}
         />
         <InputText
           title="Mobile"
           placeholder="Your Mobile"
-          value={this.state.mobile || ''}
+          value={this.state.mobile}
           handleChange={event => this.handleChange(event, 'mobile')}
         />
 

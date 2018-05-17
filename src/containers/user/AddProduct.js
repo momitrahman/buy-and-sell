@@ -10,6 +10,7 @@ class AddProduct extends React.Component {
   state = {
     categoryList: [],
     locationList: [],
+    subcategoryList: [],
     category: '',
     subcategory: '',
     location: '',
@@ -43,11 +44,12 @@ class AddProduct extends React.Component {
         context: this
       })
       .then(data => {
-        const list = Object.keys(data);
+        const keyList = Object.keys(data);
         this.setState({
           categoryList: data,
-          category: list[0],
-          subcategory: data[list[0]][0]
+          subcategoryList: data[keyList[0]],
+          category: keyList[0],
+          subcategory: data[keyList[0]][0]
         });
       })
       .catch(error => console.log(error));
@@ -58,9 +60,10 @@ class AddProduct extends React.Component {
   };
 
   handleCategoryChange = event => {
-    const value = event.target.value;
+    const value = event.target.value.split(' ').join('_');
     this.setState({
-      category: value.split(' ').join('_'),
+      category: value,
+      subcategoryList: this.state.categoryList[value],
       subcategory: this.state.categoryList[value][0]
     });
   };
@@ -70,6 +73,7 @@ class AddProduct extends React.Component {
     base
       .push('/products', {
         data: {
+          category: this.state.category,
           subcategory: this.state.subcategory,
           location: this.state.location,
           title: this.state.title.toLowerCase(),
@@ -99,7 +103,7 @@ class AddProduct extends React.Component {
         />
         <InputDropDown
           title="Subcategory"
-          options={this.state.categoryList[this.state.category] || []}
+          options={this.state.subcategoryList}
           value={this.state.subcategory}
           handleChange={event => this.handleChange(event, 'subcategory')}
         />

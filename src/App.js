@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './containers/Header';
 import Public from './App/Public';
 import User from './App/User';
+import Error404 from './components/Error404';
 
 class App extends Component {
   state = {
@@ -43,6 +44,9 @@ class App extends Component {
           <Route
             path="/user"
             component={props => <User {...props} user={this.state.user} />}
+          />
+          <Route
+            component={props => <Error404 {...props}>Page Not Found</Error404>}
           />
         </Switch>
       </React.Fragment>

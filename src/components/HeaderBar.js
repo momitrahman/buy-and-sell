@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import StyledLink from '../components/StyledLink';
+
 import * as color from '../UI/color';
 
 const Header = styled.div`
@@ -16,11 +18,15 @@ const Title = styled.div`
   font-size: 20px;
   color: white;
   padding: 5px 0;
+  cursor: pointer;
 `;
 
 const HeaderBar = props => (
   <Header>
-    <Title>Buy & Sell</Title>
+    <StyledLink to="/">
+      <Title>Buy & Sell</Title>
+    </StyledLink>
+
     {props.children}
   </Header>
 );

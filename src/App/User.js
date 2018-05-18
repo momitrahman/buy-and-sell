@@ -1,6 +1,6 @@
 import React from 'react';
 import base from '../firebase';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import AddProduct from '../containers/user/AddProduct';
 import EditProduct from '../containers/user/EditProduct';
@@ -30,37 +30,41 @@ class User extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Switch>
-          <Route
-            exact
-            path="/user/add"
-            component={props => (
-              <AddProduct {...props} user={this.props.user} />
-            )}
-          />
-          <Route
-            exact
-            path="/user/edit/:key"
-            component={props => (
-              <EditProduct
-                {...props}
-                user={this.props.user}
-                productList={this.state.productList}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/user/product-list"
-            component={props => (
-              <ProductList
-                {...props}
-                user={this.props.user}
-                productList={this.state.productList}
-              />
-            )}
-          />
-        </Switch>
+        {this.props.user ? (
+          <Switch>
+            <Route
+              exact
+              path="/user/add"
+              component={props => (
+                <AddProduct {...props} user={this.props.user} />
+              )}
+            />
+            <Route
+              exact
+              path="/user/edit/:key"
+              component={props => (
+                <EditProduct
+                  {...props}
+                  user={this.props.user}
+                  productList={this.state.productList}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/user/product-list"
+              component={props => (
+                <ProductList
+                  {...props}
+                  user={this.props.user}
+                  productList={this.state.productList}
+                />
+              )}
+            />
+          </Switch>
+        ) : (
+          <Redirect to="/" />
+        )}
       </React.Fragment>
     );
   }

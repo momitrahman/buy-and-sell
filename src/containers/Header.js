@@ -1,14 +1,46 @@
 import React from 'react';
+import firebase from 'firebase';
 
 import HeaderBar from '../components/HeaderBar';
-import UserMenu from '../components/user/UserMenu';
 import AuthBox from '../components/public/AuthBox';
+import StyledLink from '../components/StyledLink';
+import { DropDown, DropDownItem } from '../components/DropDown';
 
 class Header extends React.Component {
+  state = {
+    visible: false
+  };
+
+  handleMenu = () => this.setState({ visible: !this.state.visible });
+
+  logout = () => {
+    this.setState({ visible: !this.state.visible });
+    firebase.auth().signOut();
+    this.props.history.push('/');
+  };
+
   render() {
     return (
       <HeaderBar>
-        {this.props.user ? <UserMenu user={this.props.user} /> : <AuthBox />}
+        {this.props.user ? (
+          <React.Fragment>
+            <DropDown
+              handleMenu={this.handleMenu}
+              title={this.props.user.displayName}
+              visible={this.state.visible}
+            >
+              <DropDownItem onClick={this.handleMenu}>
+                <StyledLink to="/user/product-list">Your Products</StyledLink>
+              </DropDownItem>
+              <DropDownItem>
+                <StyledLink to="/user/add">Add Product</StyledLink>
+              </DropDownItem>
+              <DropDownItem onClick={this.logout}>Logout</DropDownItem>
+            </DropDown>
+          </React.Fragment>
+        ) : (
+          <AuthBox />
+        )}
       </HeaderBar>
     );
   }

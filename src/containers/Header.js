@@ -32,7 +32,7 @@ class Header extends React.Component {
               <DropDownItem onClick={this.handleMenu}>
                 <StyledLink to="/user/product-list">Your Products</StyledLink>
               </DropDownItem>
-              <DropDownItem>
+              <DropDownItem onClick={this.handleMenu}>
                 <StyledLink to="/user/add">Add Product</StyledLink>
               </DropDownItem>
               <DropDownItem onClick={this.logout}>Logout</DropDownItem>

@@ -107,64 +107,6 @@ class EditProduct extends React.Component {
       .catch(error => console.log(error));
   };
 
-  FORM = (
-    <React.Fragment>
-      <InputDropDown
-        title="Category"
-        options={Object.keys(this.state.categoryList).map(item =>
-          item.split('_').join(' ')
-        )}
-        value={this.state.category}
-        handleChange={event => this.handleCategoryChange(event)}
-      />
-      <InputDropDown
-        title="Subcategory"
-        options={this.state.subcategoryList}
-        value={this.state.subcategory}
-        handleChange={event => this.handleChange(event, 'subcategory')}
-      />
-      <InputDropDown
-        title="Location"
-        options={this.state.locationList}
-        value={this.state.location}
-        handleChange={event => this.handleChange(event, 'location')}
-      />
-      <InputText
-        title="Title"
-        placeholder="Product Title"
-        value={this.state.title}
-        handleChange={event => this.handleChange(event, 'title')}
-      />
-      <InputDropDown
-        title="Type"
-        options={['used', 'new']}
-        value={this.state.type}
-        handleChange={event => this.handleChange(event, 'type')}
-      />
-      <InputText
-        title="Price"
-        placeholder="Product Price"
-        value={this.state.price}
-        handleChange={event => this.handleChange(event, 'price')}
-      />
-
-      <InputTextarea
-        title="Description"
-        placeholder="Product Details "
-        value={this.state.description}
-        handleChange={event => this.handleChange(event, 'description')}
-      />
-      <InputText
-        title="Mobile"
-        placeholder="Your Mobile"
-        value={this.state.mobile}
-        handleChange={event => this.handleChange(event, 'mobile')}
-      />
-
-      <SubmitButton onClick={this.handleSubmit}>SUBMIT</SubmitButton>
-    </React.Fragment>
-  );
-
   render() {
     return (
       <React.Fragment>

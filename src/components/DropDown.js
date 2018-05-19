@@ -20,7 +20,7 @@ const Icon = styled.i`
   vertical-align: middle;
 `;
 
-export const DropDownItem = styled.a`
+export const DropDownItem = styled.div`
   display: block;
   text-decoration: none;
   font-size: 16px;

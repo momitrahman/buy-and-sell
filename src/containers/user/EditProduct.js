@@ -5,6 +5,7 @@ import InputText from '../../components/user/Form/InputText';
 import InputDropDown from '../../components/user/Form/InputDropDown';
 import InputTextarea from '../../components/user/Form/InputTextarea';
 import SubmitButton from '../../components/user/Form/SubmitButton';
+import Message from '../../components/user/Form/Message';
 import StyledLink from '../../components/StyledLink';
 
 class EditProduct extends React.Component {
@@ -22,7 +23,11 @@ class EditProduct extends React.Component {
     mobile: '',
     date: '',
     uid: '',
-    email: ''
+    email: '',
+    titleMessage: false,
+    priceMessage: false,
+    descriptionMessage: false,
+    mobileMessage: false
   };
 
   componentDidMount() {
@@ -31,7 +36,6 @@ class EditProduct extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.category !== this.state.category) {
-      console.log('DONE');
       this.fetchLocation();
       this.fetchCategory();
     }
@@ -76,6 +80,42 @@ class EditProduct extends React.Component {
     this.setState({ [name]: event.target.value });
   };
 
+  handleNameChange = event => {
+    const value = event.target.value;
+    if (value.length <= 50) {
+      this.setState({ title: value, titleMessage: false });
+    } else {
+      this.setState({ titleMessage: 'Max 50 Characters' });
+    }
+  };
+
+  handlePriceChange = event => {
+    const value = event.target.value;
+    if (!isNaN(value)) {
+      this.setState({ price: value, priceMessage: false });
+    } else {
+      this.setState({ priceMessage: 'Numbers Only' });
+    }
+  };
+
+  handleDescriptionChange = event => {
+    const value = event.target.value;
+    if (value.length <= 1500) {
+      this.setState({ description: value, descriptionMessage: false });
+    } else {
+      this.setState({ descriptionMessage: 'Max 1500 Characters' });
+    }
+  };
+
+  handleMobileChange = event => {
+    const value = event.target.value;
+    if (!isNaN(value) && value.length <= 11) {
+      this.setState({ mobile: value, mobileMessage: false });
+    } else {
+      this.setState({ mobileMessage: '11 Digits Only' });
+    }
+  };
+
   handleCategoryChange = event => {
     const value = event.target.value.split(' ').join('_');
     this.setState({
@@ -87,24 +127,47 @@ class EditProduct extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    base
-      .update(`/products/${this.props.match.params.key}`, {
-        data: {
-          category: this.state.category,
-          subcategory: this.state.subcategory,
-          location: this.state.location,
-          title: this.state.title.toLowerCase(),
-          type: this.state.type,
-          price: this.state.price,
-          description: this.state.description,
-          mobile: this.state.mobile,
-          date: this.state.date,
-          uid: this.props.user.uid,
-          email: this.props.user.email
-        }
-      })
-      .then(() => console.log('success'))
-      .catch(error => console.log(error));
+    if (this.state.title.length === 0) {
+      this.setState({ titleMessage: 'Title Can Not Be Empty' });
+    }
+    if (this.state.price.length <= 0) {
+      this.setState({ priceMessage: 'Price Can Not Be Empty' });
+    }
+    if (this.state.description.length <= 200) {
+      this.setState({
+        descriptionMessage: 'Description Can Not Be Less Than 200 Characters'
+      });
+    }
+    if (this.state.mobile.length < 11) {
+      this.setState({ mobileMessage: 'Must Be 11 Digits' });
+    }
+
+    if (
+      this.state.title.length > 0 &&
+      this.state.price.length > 0 &&
+      this.state.description.length >= 200 &&
+      this.state.mobile.length == 11
+    ) {
+      base
+        .update(`/products/${this.props.match.params.key}`, {
+          data: {
+            category: this.state.category,
+            subcategory: this.state.subcategory,
+            location: this.state.location,
+            title: this.state.title.toLowerCase(),
+            type: this.state.type,
+            price: this.state.price,
+            description: this.state.description,
+            mobile: this.state.mobile,
+            date: this.state.date,
+            uid: this.props.user.uid,
+            email: this.props.user.email
+          }
+        })
+        .then(() => console.log('success'))
+        .then(() => this.props.history.push('/user/product-list'))
+        .catch(error => console.log(error));
+    }
   };
 
   render() {
@@ -136,8 +199,11 @@ class EditProduct extends React.Component {
               title="Title"
               placeholder="Product Title"
               value={this.state.title}
-              handleChange={event => this.handleChange(event, 'title')}
+              handleChange={event => this.handleNameChange(event)}
             />
+            {this.state.titleMessage && (
+              <Message> {this.state.titleMessage} </Message>
+            )}
             <InputDropDown
               title="Type"
               options={['used', 'new']}
@@ -148,23 +214,30 @@ class EditProduct extends React.Component {
               title="Price"
               placeholder="Product Price"
               value={this.state.price}
-              handleChange={event => this.handleChange(event, 'price')}
+              handleChange={event => this.handlePriceChange(event)}
             />
-
+            {this.state.priceMessage && (
+              <Message>{this.state.priceMessage}</Message>
+            )}
             <InputTextarea
               title="Description"
               placeholder="Product Details "
               value={this.state.description}
-              handleChange={event => this.handleChange(event, 'description')}
+              handleChange={event => this.handleDescriptionChange(event)}
             />
+            {this.state.descriptionMessage && (
+              <Message>{this.state.descriptionMessage}</Message>
+            )}
             <InputText
               title="Mobile"
               placeholder="Your Mobile"
               value={this.state.mobile}
-              handleChange={event => this.handleChange(event, 'mobile')}
+              handleChange={event => this.handleMobileChange(event)}
             />
-
-            <SubmitButton onClick={this.handleSubmit}>SUBMIT</SubmitButton>
+            {this.state.mobileMessage && (
+              <Message>{this.state.mobileMessage}</Message>
+            )}
+            <SubmitButton onClick={this.handleSubmit}>UPDATE</SubmitButton>
           </React.Fragment>
         ) : (
           <StyledLink to="/user/product-list">Get Back</StyledLink>

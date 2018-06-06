@@ -1,6 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const BackDrop = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+`;
+
 const Menu = styled.div`
   position: relative;
   font-size: 16px;
@@ -11,6 +20,7 @@ const MenuList = styled.div`
   position: absolute;
   background: white;
   min-width: calc(100% + 10px);
+  cursor: pointer;
 `;
 
 const Icon = styled.i`
@@ -30,6 +40,7 @@ export const DropDownItem = styled.div`
 export const DropDown = props => {
   return (
     <React.Fragment>
+      {props.visible && <BackDrop onClick={props.handleMenu} />}
       <Menu onClick={props.handleMenu}>
         {props.title}
         <Icon className="ion-android-arrow-dropdown" />

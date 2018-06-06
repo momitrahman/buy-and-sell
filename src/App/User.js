@@ -1,6 +1,6 @@
 import React from 'react';
 import base from '../firebase';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import AddProduct from '../containers/user/AddProduct';
 import EditProduct from '../containers/user/EditProduct';

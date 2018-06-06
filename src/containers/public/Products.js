@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProductListItem from '../../components/public/ProductListItem';
+import ProductListItem from '../../components/public/Product/ProductListItem';
 import LoadMoreButton from '../../UI/Button/LoadMoreButton';
 
 class Products extends React.Component {

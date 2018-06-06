@@ -6,6 +6,7 @@ import Header from './containers/Header';
 import Public from './App/Public';
 import User from './App/User';
 import Error404 from './components/Error404';
+import ProductItemView from './components/public/Product/ProductItemView';
 
 class App extends Component {
   state = {
@@ -45,6 +46,7 @@ class App extends Component {
             path="/user"
             component={props => <User {...props} user={this.state.user} />}
           />
+          <Route exact path="/:id" component={ProductItemView} />
           <Route
             component={props => <Error404 {...props}>Page Not Found</Error404>}
           />

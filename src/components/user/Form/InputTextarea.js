@@ -10,10 +10,10 @@ const TextArea = styled.textarea`
   padding: 10px;
   font-size: 16px;
   width: 550px;
-  height: 300px;
   border: none;
   border-radius: 5px;
   margin-top: 5px;
+  overflow: auto;
 `;
 
 const InputTextarea = props => (
@@ -21,6 +21,7 @@ const InputTextarea = props => (
     <Title>
       {props.title}
       <TextArea
+        rows="5"
         placeholder={props.placeholder}
         value={props.value}
         onChange={props.handleChange}

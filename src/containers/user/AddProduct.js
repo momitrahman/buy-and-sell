@@ -130,7 +130,7 @@ class AddProduct extends React.Component {
       this.state.title.length > 0 &&
       this.state.price.length > 0 &&
       this.state.description.length >= 200 &&
-      this.state.mobile.length == 11
+      this.state.mobile.length === 11
     ) {
       base
         .push('/products', {

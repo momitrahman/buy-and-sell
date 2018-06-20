@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import * as color from '../../color';
 
 const Backdrop = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -22,9 +22,11 @@ const Content = styled.div`
   transform: translateX(-50%);
   overflow: auto;
   z-index: 100;
+  padding: 10px;
 `;
 
 const Title = styled.div`
+  margin-top: 10px;
   font-size: 20px;
   text-align: center;
   text-transform: uppercase;
@@ -53,7 +55,7 @@ const Modal = props => {
       <Backdrop onClick={props.handleModal} />
       <Content>
         {props.close && (
-          <Close onClick={props.handleModal} className="ion-close" />
+          <Close onClick={props.handleModal} className="ion-md-close" />
         )}
         <Title>{props.title}</Title>
         <Body>{children}</Body>

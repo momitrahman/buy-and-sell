@@ -5,19 +5,27 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import * as color from '../../../color';
 
-const Item = styled.div`
+const StyledLink = styled(Link)`
+  display: block;
+  position: relative;
   width: 650px;
-  display: flex;
   margin: 30px 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 1px black;
+  padding: 0;
+  text-decoration: none;
+  color: ${color.colorBlack};
+  border: 1px solid ${color.colorA};
   background: white;
+  border-radius: 5px;
   overflow: hidden;
 `;
 
+const Details = styled.div`
+  display: flex;
+`;
+
 const Image = styled.img`
-  max-width: 200px;
-  max-height: 170px;
+  width: 160px;
+  height: 130px;
 `;
 
 const Info = styled.div`
@@ -26,51 +34,51 @@ const Info = styled.div`
 `;
 
 const Heading = styled.div`
-  color: ${color.colorG};
+  color: ${color.colorA};
   font-size: 24px;
+  margin-bottom: 5px;
   text-transform: capitalize;
   white-space: nowrap;
 `;
 
-const Location = styled.div`
+const LocationCat = styled.div`
   font-size: 18px;
-`;
-
-const Type = styled.span`
-  font-weight: 700;
+  font-weight: 300;
+  text-transform: capitalize;
 `;
 
 const Price = styled.div`
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 400;
 `;
 
-const Time = styled.span`
+const Time = styled.div`
   font-size: 16px;
+  font-weight: 400;
+  color: ${color.colorB};
+  margin-right: 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: ${color.colorBlack};
-`;
-
-const ProductListItem = ({ id, item }) => {
-  const { title, location, price, date, type, subcategory } = item;
-  console.log(id);
+const ProductListItem = ({ id, item, index }) => {
+  const { title, location, price, date, subcategory } = item;
   return (
     <StyledLink to={`/${id}`}>
-      <Item>
-        <Image src="https://picsum.photos/400/400?random" />
+      <Details>
+        <Image src={`https://picsum.photos/400/400?${index}`} />
         <Info>
           <Heading>{title}</Heading>
           <div>
-            <Location>{location}</Location>
-            <Type>{type}</Type> - {subcategory}
+            <LocationCat>
+              {location} &ndash; {subcategory}
+            </LocationCat>
           </div>
           <Price>৳ {price}</Price>
         </Info>
-        <Time>{moment(moment(date)).fromNow()}</Time>
-      </Item>
+      </Details>
+      <Time>{moment(moment(date)).fromNow()}</Time>
     </StyledLink>
   );
 };

@@ -11,7 +11,7 @@ const filterLocationList = props => {
       location={location}
       handleLocation={props.handleLocation}
       handleModal={props.handleModal}
-      icon="ion-arrow-right-c"
+      icon="ion-md-arrow-dropright"
     />
   ));
 
@@ -22,7 +22,7 @@ const filterLocationList = props => {
         location={'All'}
         handleLocation={props.handleLocation}
         handleModal={props.handleModal}
-        icon="ion-android-home"
+        icon="ion-md-home"
       />
       {allLocations}
     </React.Fragment>
@@ -31,7 +31,7 @@ const filterLocationList = props => {
 
 const FilterLocation = props => (
   <React.Fragment>
-    <FilterItem icon="ion-ios-location" handleModal={props.handleModal}>
+    <FilterItem icon="ion-md-navigate" handleModal={props.handleModal}>
       {props.currentLocation || 'Location'}
     </FilterItem>
     <Modal

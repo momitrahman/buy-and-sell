@@ -19,20 +19,23 @@ const Input = styled.input`
   border: 1px solid transparent;
 
   &:focus {
-    outline: none;
     border: 1px solid ${color.colorG};
+    outline: none;
   }
 `;
 
-const ClearIcon = styled.div`
-  font-size: 25px;
-  color: white;
+const Clear = styled.div`
   width: 50px;
-  padding-left: 15px;
-  background-color: ${color.colorR};
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  background-color: ${color.colorR};
   cursor: pointer;
+`;
+
+const Icon = styled.i`
+  font-size: 30px;
+  color: white;
+  padding-left: 15px;
 `;
 
 const SearchBar = props => {
@@ -43,7 +46,9 @@ const SearchBar = props => {
         onChange={props.handleSearch}
         placeholder="Search Here"
       />
-      <ClearIcon onClick={props.handleClearSearch} className="ion-close" />
+      <Clear onClick={props.handleClearSearch}>
+        <Icon className="ion-md-close" />
+      </Clear>
     </SearchBox>
   );
 };

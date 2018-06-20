@@ -8,8 +8,10 @@ const Location = styled.div`
 `;
 
 const Icon = styled.i`
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 10px;
+  line-height: 0;
+  vertical-align: baseline;
 `;
 
 // Execute two function in one click

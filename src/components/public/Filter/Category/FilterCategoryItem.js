@@ -8,7 +8,7 @@ const Category = styled.div`
 `;
 
 const Icon = styled.i`
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 10px;
 `;
 

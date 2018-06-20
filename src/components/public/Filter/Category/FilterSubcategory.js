@@ -7,6 +7,11 @@ const Subcategory = styled.div`
   cursor: pointer;
 `;
 
+const Icon = styled.i`
+  font-size: 16px;
+  margin-right: 10px;
+`;
+
 // Execute two function in one click
 const modalAndSelectCategory = (props, item) => {
   props.handleCategory(item);
@@ -19,7 +24,7 @@ const FilterSubcategory = props =>
       key={index}
       onClick={() => modalAndSelectCategory(props, item)}
     >
-      {item}
+      <Icon className="ion-md-arrow-dropright" /> {item}
     </Subcategory>
   ));
 

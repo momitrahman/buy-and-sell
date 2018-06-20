@@ -1,43 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProductListItem from '../../components/public/Product/ProductListItem';
-import LoadMoreProduct from '../../components/public/Product/LoadMoreProduct';
+import LoadMoreProduct from '../../components/public/LoadMoreProduct';
 
 class Products extends React.Component {
   state = {
-    limit: 4
+    limit: 2
   };
 
   // reset limit if product list change
   componentDidUpdate(prevProps) {
     if (this.props.filteredProduct !== prevProps.filteredProduct) {
-      this.setState({ limit: 4 });
+      this.setState({ limit: 2 });
     }
   }
 
   // set product load limit
-  loadMore() {
+  loadMore = () => {
     this.setState(prevState => ({
-      limit: prevState.limit + 4
+      limit: prevState.limit + 1
     }));
-  }
+  };
 
   // load more product list on click based on limit
-  productList() {
-    return this.props.filteredProduct.slice(0, this.state.limit).map(item => {
-      return <ProductListItem key={item.key} id={item.key} item={item} />;
-    });
-  }
+  productList = () => {
+    return this.props.filteredProduct
+      .slice(0, this.state.limit)
+      .map((item, index) => {
+        return (
+          <ProductListItem
+            key={item.key}
+            id={item.key}
+            item={item}
+            index={index}
+          />
+        );
+      });
+  };
 
   render() {
-    const ProductList = this.productList();
     return (
       <div>
-        {ProductList}
+        {this.productList()}
         {this.props.filteredProduct.length > this.state.limit && (
-          <LoadMoreProduct onClick={this.loadMore.bind(this)}>
-            <i className="ion-chevron-down" style={{ fontSize: '25px' }} />
-          </LoadMoreProduct>
+          <LoadMoreProduct loadMore={this.loadMore} />
         )}
       </div>
     );

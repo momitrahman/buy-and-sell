@@ -16,6 +16,7 @@ const Header = styled.div`
 
 const Title = styled.div`
   font-size: 20px;
+  font-weight: 600;
   color: white;
   padding: 10px;
   cursor: pointer;

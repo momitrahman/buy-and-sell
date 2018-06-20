@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 
 import Modal from '../../utility/Modal';
-import PostAdButton from './PostAdButton';
+import PostAdButton from '../PostAdButton';
 import AuthButton from './AuthButton';
 
 class AuthBox extends React.Component {

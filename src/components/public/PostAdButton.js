@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as color from '../../../color';
+import * as color from '../../color';
 
 const PostAdButton = styled.div`
   font-size: 20px;

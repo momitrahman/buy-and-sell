@@ -4,24 +4,25 @@ import * as color from '../../../color';
 
 const Button = styled.button`
   font-size: 16px;
+  color: ${color.colorG};
+  background-color: white;
   text-decoration: none;
   border: none;
   border-radius: 5px;
-  color: white;
-  background-color: ${color.colorG};
-  width: 200px;
-  padding: 10px 5px;
+  border: 1px solid ${color.colorG};
+  padding: 5px;
   text-transform: capitalize;
   white-space: nowrap;
   overflow: hidden;
+  cursor: pointer;
+  width: 200px;
 `;
 
 const Icon = styled.i`
-  font-size: 22px;
-  color: white;
-  background-color: ${color.colorG};
+  font-size: 18px;
+  line-height: 0;
   border: none;
-  vertical-align: middle;
+  vertical-align: baseline;
   margin-right: 5px;
 `;
 

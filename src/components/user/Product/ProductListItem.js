@@ -47,7 +47,7 @@ const LocationTime = styled.div`
 
 const Price = styled.div`
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
 `;
 
 const Action = styled.div`
@@ -72,7 +72,7 @@ const ProductListItem = props => {
   return (
     <Item>
       <InfoBox>
-        <Image src="https://picsum.photos/400/400?random" />
+        <Image src="https://picsum.photos/200/200?random" />
         <Info>
           <Heading>{title}</Heading>
           <LocationTime>

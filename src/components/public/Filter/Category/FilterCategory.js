@@ -17,7 +17,7 @@ const filterCategoryList = props => {
       <FilterCategoryItem
         key={index + 1}
         categoryTitle={categoryTitle}
-        icon="ion-arrow-right-c"
+        icon="ion-md-arrow-dropright"
         handleSubcategory={props.handleSubcategory}
       />
     )
@@ -30,7 +30,7 @@ const filterCategoryList = props => {
         categoryTitle={'All'}
         handleSubcategory={props.handleSubcategory}
         handleModal={props.handleModal}
-        icon="ion-android-home"
+        icon="ion-md-home"
       />
       {allCategory}
     </React.Fragment>
@@ -39,7 +39,7 @@ const filterCategoryList = props => {
 
 const FilterCategory = props => (
   <React.Fragment>
-    <FilterItem icon="ion-ios-pricetag" handleModal={props.handleModal}>
+    <FilterItem icon="ion-md-pricetags " handleModal={props.handleModal}>
       {props.currentCategory || 'Category'}
     </FilterItem>
     <Modal

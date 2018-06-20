@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import * as color from '../../../UI/color';
+import * as color from '../../../color';
 
 const Item = styled.div`
   width: 650px;

@@ -1,9 +1,9 @@
 import React from 'react';
 import firebase from 'firebase';
 
-import Modal from '../../components/Modal';
-import PostAdButton from '../../UI/Button/PostAdButton';
-import AuthButton from '../../UI/Button/AuthButton';
+import Modal from '../../utility/Modal';
+import PostAdButton from './PostAdButton';
+import AuthButton from './AuthButton';
 
 class AuthBox extends React.Component {
   state = { modal: false };

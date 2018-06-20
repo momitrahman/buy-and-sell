@@ -6,7 +6,7 @@ import InputDropDown from '../../components/user/Form/InputDropDown';
 import InputTextarea from '../../components/user/Form/InputTextarea';
 import SubmitButton from '../../components/user/Form/SubmitButton';
 import Message from '../../components/user/Form/Message';
-import StyledLink from '../../components/StyledLink';
+import StyledLink from '../../components/utility/StyledLink';
 
 class EditProduct extends React.Component {
   state = {

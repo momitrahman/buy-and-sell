@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import * as color from '../../UI/color';
+import * as color from '../../color';
 
 const SearchBox = styled.div`
   display: flex;
@@ -10,16 +10,17 @@ const SearchBox = styled.div`
 `;
 
 const Input = styled.input`
+  width: 600px;
+  font-size: 20px;
   padding: 10px;
   border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  font-size: 20px;
-  width: 600px;
+  border: 1px solid transparent;
 
   &:focus {
     outline: none;
-    border: 1px solid ${color.colorB};
+    border: 1px solid ${color.colorG};
   }
 `;
 

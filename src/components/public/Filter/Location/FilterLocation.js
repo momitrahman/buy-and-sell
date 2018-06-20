@@ -1,7 +1,7 @@
 import React from 'react';
 import FilterItem from '../FilterItem';
 import FilterLocationItem from './FilterLocationItem';
-import Modal from '../../../Modal';
+import Modal from '../../../utility/Modal';
 
 // render location list
 const filterLocationList = props => {

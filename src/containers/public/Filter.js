@@ -1,10 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 import base from '../../firebase';
 
-import FilterBox from '../../UI/Box/FilterBox';
 import FilterLocation from '../../components/public/Filter/Location/FilterLocation';
 import FilterCategory from '../../components/public/Filter/Category/FilterCategory';
 import SortBy from '../../components/public/Filter/SortBy';
+
+const FilterBox = styled.div`
+  width: 650px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+`;
 
 class Filter extends React.Component {
   state = {

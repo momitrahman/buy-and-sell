@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 import DeleteProduct from '../../../containers/user/DeleteProduct';
-import * as color from '../../../UI/color';
+import * as color from '../../../color';
 
 const Item = styled.div`
   width: 650px;

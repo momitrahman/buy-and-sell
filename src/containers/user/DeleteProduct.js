@@ -2,7 +2,7 @@ import React from 'react';
 import base from '../../firebase';
 import { withRouter } from 'react-router';
 
-import Confirm from '../../components/Confirm';
+import Confirm from '../../components/utility/Confirm';
 
 class DeleteProduct extends React.Component {
   state = { visible: false };

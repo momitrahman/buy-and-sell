@@ -2,9 +2,9 @@ import React from 'react';
 import firebase from 'firebase';
 
 import HeaderBar from '../components/HeaderBar';
-import AuthBox from '../components/public/AuthBox';
-import StyledLink from '../components/StyledLink';
-import { DropDown, DropDownItem } from '../components/DropDown';
+import AuthBox from '../components/public/AuthBox/AuthBox';
+import StyledLink from '../components/utility/StyledLink';
+import { DropDown, DropDownItem } from '../components/utility/DropDown';
 
 class Header extends React.Component {
   state = {

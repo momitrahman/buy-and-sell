@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as color from '../../../UI/color';
+import * as color from '../../../color';
 
 const Message = styled.div`
   font-size: 14px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProductListItem from '../../components/public/Product/ProductListItem';
-import LoadMoreButton from '../../UI/Button/LoadMoreButton';
+import LoadMoreProduct from '../../components/public/Product/LoadMoreProduct';
 
 class Products extends React.Component {
   state = {
@@ -35,9 +35,9 @@ class Products extends React.Component {
       <div>
         {ProductList}
         {this.props.filteredProduct.length > this.state.limit && (
-          <LoadMoreButton onClick={this.loadMore.bind(this)}>
+          <LoadMoreProduct onClick={this.loadMore.bind(this)}>
             <i className="ion-chevron-down" style={{ fontSize: '25px' }} />
-          </LoadMoreButton>
+          </LoadMoreProduct>
         )}
       </div>
     );

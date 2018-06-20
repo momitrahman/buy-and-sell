@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import StyledLink from '../components/StyledLink';
+import StyledLink from '../components/utility/StyledLink';
 
-import * as color from '../UI/color';
+import * as color from '../color';
 
 const Header = styled.div`
   width: 650px;
@@ -17,7 +17,7 @@ const Header = styled.div`
 const Title = styled.div`
   font-size: 20px;
   color: white;
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
 `;
 

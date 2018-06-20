@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import * as color from '../color';
+import * as color from '../../../color';
 
-const LoadMoreButton = styled.button`
+const LoadMoreProduct = styled.button`
   display: block;
   text-decoration: none;
   font-size: 16px;
@@ -16,4 +16,4 @@ const LoadMoreButton = styled.button`
   text-align: center;
 `;
 
-export default LoadMoreButton;
+export default LoadMoreProduct;

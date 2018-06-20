@@ -63,13 +63,13 @@ const ProductListItem = ({ id, item }) => {
         <Image src="https://picsum.photos/400/400?random" />
         <Info>
           <Heading>{title}</Heading>
-          <Time>{moment(moment(date).format()).fromNow()}</Time>
           <div>
             <Location>{location}</Location>
             <Type>{type}</Type> - {subcategory}
           </div>
           <Price>৳ {price}</Price>
         </Info>
+        <Time>{moment(moment(date)).fromNow()}</Time>
       </Item>
     </StyledLink>
   );

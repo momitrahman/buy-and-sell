@@ -12,21 +12,26 @@ const BackDrop = styled.div`
 
 const Menu = styled.div`
   position: relative;
-  font-size: 16px;
+  font-size: 20px;
+  padding: 5px;
+  padding-right: 20px;
+  color: white;
   cursor: pointer;
 `;
 
 const MenuList = styled.div`
   position: absolute;
   background: white;
+  color: black;
   min-width: calc(100% + 10px);
-  cursor: pointer;
+  z-index: 100;
 `;
 
 const Icon = styled.i`
   color: black;
-  margin-left: 10px;
-  font-size: 20px;
+  margin-left: 5px;
+  color: white;
+  font-size: 25px;
   vertical-align: middle;
 `;
 
@@ -34,7 +39,9 @@ export const DropDownItem = styled.div`
   display: block;
   text-decoration: none;
   font-size: 16px;
-  padding: 10px;
+  margin-top: 10px;
+  padding: 0 5px;
+  cursor: pointer;
 `;
 
 export const DropDown = props => {

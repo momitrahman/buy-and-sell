@@ -145,7 +145,8 @@ class AddProduct extends React.Component {
             mobile: this.state.mobile,
             date: Date.now(),
             uid: this.props.user.uid,
-            email: this.props.user.email
+            email: this.props.user.email,
+            name: this.props.user.displayName
           }
         })
         .then(() => console.log('success'))

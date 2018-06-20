@@ -6,9 +6,9 @@ import StyledLink from '../components/StyledLink';
 import * as color from '../UI/color';
 
 const Header = styled.div`
-  width: 100%;
+  width: 650px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   background-color: ${color.colorB};
   margin-bottom: 30px;
@@ -17,7 +17,7 @@ const Header = styled.div`
 const Title = styled.div`
   font-size: 20px;
   color: white;
-  padding: 5px 0;
+  padding: 5px;
   cursor: pointer;
 `;
 
@@ -26,7 +26,6 @@ const HeaderBar = props => (
     <StyledLink to="/">
       <Title>Buy & Sell</Title>
     </StyledLink>
-
     {props.children}
   </Header>
 );

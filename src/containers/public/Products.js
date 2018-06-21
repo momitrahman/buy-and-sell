@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ProductListItem from '../../components/public/Product/ProductListItem';
 import LoadMoreProduct from '../../components/public/LoadMoreProduct';
+import ErrorMessage from '../../components/ErrorMessage';
 
 class Products extends React.Component {
   state = {
@@ -41,7 +42,11 @@ class Products extends React.Component {
   render() {
     return (
       <div>
-        {this.productList()}
+        {this.productList().length > 0 ? (
+          this.productList()
+        ) : (
+          <ErrorMessage> Noting found 😞</ErrorMessage>
+        )}
         {this.props.filteredProduct.length > this.state.limit && (
           <LoadMoreProduct loadMore={this.loadMore} />
         )}

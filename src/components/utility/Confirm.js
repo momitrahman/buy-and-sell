@@ -45,7 +45,7 @@ const OkButton = styled.div`
   background-color: green;
   padding: 5px 10px;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 `;
 

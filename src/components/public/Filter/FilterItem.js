@@ -8,9 +8,9 @@ const Button = styled.button`
   background-color: white;
   text-decoration: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 100px;
   border: 1px solid ${color.colorG};
-  padding: 5px;
+  padding: 5px 10px;
   text-transform: capitalize;
   white-space: nowrap;
   overflow: hidden;

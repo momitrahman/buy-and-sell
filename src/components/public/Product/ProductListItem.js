@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
   padding: 0;
   text-decoration: none;
   color: ${color.colorBlack};
-  border: 1px solid ${color.colorA};
+  box-shadow: 0 1px 2px ${color.colorA};
   background: white;
   border-radius: 5px;
   overflow: hidden;
@@ -36,13 +36,12 @@ const Info = styled.div`
 const Heading = styled.div`
   color: ${color.colorA};
   font-size: 24px;
-  margin-bottom: 5px;
   text-transform: capitalize;
   white-space: nowrap;
 `;
 
 const LocationCat = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   text-transform: capitalize;
 `;
@@ -65,7 +64,7 @@ const Time = styled.div`
 const ProductListItem = ({ id, item, index }) => {
   const { title, location, price, date, subcategory } = item;
   return (
-    <StyledLink to={`/${id}`}>
+    <StyledLink to={`/view/${id}`}>
       <Details>
         <Image src={`https://picsum.photos/400/400?${index}`} />
         <Info>

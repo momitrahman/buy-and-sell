@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import AddProduct from '../containers/user/AddProduct';
 import EditProduct from '../containers/user/EditProduct';
 import ProductList from '../components/user/Product/ProductList';
-import Error404 from '../components/Error404';
+import ErrorMessage from '../components/ErrorMessage';
 
 class User extends React.Component {
   state = {
@@ -64,7 +64,7 @@ class User extends React.Component {
             />
           </Switch>
         ) : (
-          <Error404>You are not sign in.</Error404>
+          <ErrorMessage>You are not sign in.</ErrorMessage>
         )}
       </React.Fragment>
     );

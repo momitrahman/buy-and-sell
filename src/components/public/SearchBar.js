@@ -7,15 +7,18 @@ const SearchBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: stretch;
+  line-height: 0;
 `;
 
 const Input = styled.input`
+  display: block;
   width: 600px;
-  font-size: 20px;
+  line-height: 10px;
+  font-size: 18px;
   padding: 10px;
   border: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
   border: 1px solid transparent;
 
   &:focus {
@@ -24,18 +27,17 @@ const Input = styled.input`
   }
 `;
 
-const Clear = styled.div`
-  width: 50px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: ${color.colorR};
-  cursor: pointer;
-`;
-
-const Icon = styled.i`
+const ClearIcon = styled.i`
+  display: block;
   font-size: 30px;
   color: white;
-  padding-left: 15px;
+  width: 50px;
+  padding: 5px 15px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  background-color: ${color.colorR};
+  cursor: pointer;
+  vertical-align: middle;
 `;
 
 const SearchBar = props => {
@@ -46,9 +48,7 @@ const SearchBar = props => {
         onChange={props.handleSearch}
         placeholder="Search Here"
       />
-      <Clear onClick={props.handleClearSearch}>
-        <Icon className="ion-md-close" />
-      </Clear>
+      <ClearIcon onClick={props.handleClearSearch} className="ion-md-close" />
     </SearchBox>
   );
 };

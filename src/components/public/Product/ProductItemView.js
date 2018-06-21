@@ -2,34 +2,35 @@ import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 import base from '../../../firebase';
+import * as color from '../../../color';
 
 const Wrapper = styled.div`
   width: 650px;
   border-radius: 5px;
-  box-shadow: 0 0 1px black;
+  /* border: 1px solid ${color.colorA}; */
+  box-shadow: 0 1px 2px ${color.colorA};
   background: white;
   overflow: hidden;
+  margin-bottom: 10px;
 `;
 
 const Title = styled.div`
-  font-size: 20px;
-  padding: 5px 20px;
+  font-size: 28px;
+  color: ${color.colorA};
+  padding: 0 20px;
   text-transform: capitalize;
   white-space: nowrap;
 `;
 
 const BasicInfo = styled.div`
-  font-size: 14px;
+  font-size: 16px;
+  padding: 0 20px;
+  margin-bottom: 5px;
+`;
+
+const Uppercase = styled.span`
+  text-transform: capitalize;
   font-weight: 600;
-  padding: 5px 20px;
-`;
-
-const Name = styled.span`
-  color: green;
-`;
-
-const Time = styled.span`
-  color: orangered;
 `;
 
 const PriceInfo = styled.div`
@@ -37,34 +38,42 @@ const PriceInfo = styled.div`
   text-transform: capitalize;
   display: flex;
   justify-content: space-between;
-  font-weight: 600;
+  align-items: center;
 `;
 
 const Price = styled.div`
-  font-size: 18px;
+  font-size: 20px;
+  background-color: ${color.colorO};
+  padding: 5px 10px;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
 `;
 
 const Info = styled.div`
-  font-size: 16px;
+  font-size: 18px;
+  border-bottom: 3px solid ${color.colorO};
 `;
 
 const Description = styled.div`
   font-size: 16px;
-  padding: 5px 20px;
+  padding: 10px 20px;
   text-align: justify;
 `;
 
 const ContactInfo = styled.div`
   padding: 5px 20px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
+  border-bottom: 3px solid ${color.colorG};
 `;
 
 const Contact = styled.div`
+  font-size: 18px;
   font-weight: 400;
 `;
 const Icon = styled.i`
   line-height: 0;
+  color: ${color.colorG}
   font-size: 20px;
   vertical-align: middle;
   margin-right: 10px;
@@ -109,14 +118,12 @@ class ProductItemView extends React.Component {
             <Title>{title}</Title>
             <BasicInfo>
               Posted by
-              <Name> {name}, </Name>
-              <Time>
-                {moment(moment(date)).format('dddd, MMMM Do YYYY, h:mm a') +
-                  ' '}
-              </Time>
-              from {location}
+              <Uppercase> {name}, </Uppercase>
+              {moment(moment(date)).format('dddd, MMMM Do YYYY, h:mm a') + ' '}
+              from
+              <Uppercase>{' ' + location}</Uppercase>
             </BasicInfo>
-            <hr />
+            <img src="https://picsum.photos/700/300" />
             <PriceInfo>
               <Price>৳ {price}</Price>
               <Info>
@@ -127,7 +134,6 @@ class ProductItemView extends React.Component {
             <Description>{description}</Description>
             <ContactInfo>
               Contact
-              <hr />
               <Contact>
                 <Icon className="ion-md-call" />
                 {mobile}

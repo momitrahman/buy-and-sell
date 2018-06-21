@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import Header from './containers/Header';
 import Public from './App/Public';
 import User from './App/User';
-import Error404 from './components/Error404';
+import ErrorMessage from './components/ErrorMessage';
 import ProductItemView from './components/public/Product/ProductItemView';
 
 class App extends Component {
@@ -46,9 +46,11 @@ class App extends Component {
             path="/user"
             component={props => <User {...props} user={this.state.user} />}
           />
-          <Route exact path="/:id" component={ProductItemView} />
+          <Route exact path="/view/:id" component={ProductItemView} />
           <Route
-            component={props => <Error404 {...props}>Page Not Found</Error404>}
+            component={props => (
+              <ErrorMessage {...props}>Page not found 😞</ErrorMessage>
+            )}
           />
         </Switch>
       </React.Fragment>

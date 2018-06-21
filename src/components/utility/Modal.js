@@ -22,20 +22,21 @@ const Content = styled.div`
   transform: translateX(-50%);
   overflow: auto;
   z-index: 100;
-  padding: 10px;
+  padding: 10px 0 5px 0;
 `;
 
 const Title = styled.div`
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 5px;
+  font-size: 18px;
   text-align: center;
   text-transform: uppercase;
   color: ${color.colorO};
+  border-bottom: 1px solid ${color.colorO};
 `;
 
 const Body = styled.div`
   font-size: 16px;
-  margin: 30px;
+  margin: 25px;
 `;
 
 const Close = styled.i`
@@ -43,13 +44,13 @@ const Close = styled.i`
   float: right;
   margin-right: 10px;
   cursor: pointer;
+  vertical-align: baseline;
 
   &:hover {
     color: ${color.colorO};
   }
 `;
 const Modal = props => {
-  const children = props.children;
   return props.visible ? (
     <React.Fragment>
       <Backdrop onClick={props.handleModal} />
@@ -58,7 +59,7 @@ const Modal = props => {
           <Close onClick={props.handleModal} className="ion-md-close" />
         )}
         <Title>{props.title}</Title>
-        <Body>{children}</Body>
+        <Body>{props.children}</Body>
       </Content>
     </React.Fragment>
   ) : null;

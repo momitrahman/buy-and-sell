@@ -10,7 +10,7 @@ const LoadMore = styled.i`
   line-height: 0;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 100px;
   width: 650px;
   margin: 10px;
   background-color: ${color.colorA};

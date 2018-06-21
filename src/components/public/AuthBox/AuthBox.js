@@ -31,11 +31,12 @@ class AuthBox extends React.Component {
           handleModal={this.handleModal}
         >
           <div>
-            <AuthButton onClick={this.authCheck}>
+            <AuthButton
+              authCheck={this.authCheck}
+              color="#dd4b39"
+              icon="ion-logo-google"
+            >
               Sign in using Google
-            </AuthButton>
-            <AuthButton onClick={this.authCheck}>
-              Sign up using Google
             </AuthButton>
           </div>
         </Modal>

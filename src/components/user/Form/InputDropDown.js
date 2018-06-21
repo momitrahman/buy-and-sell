@@ -12,7 +12,7 @@ const Select = styled.select`
   padding: 10px;
   width: 550px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background: white;
   margin-top: 5px;
   text-transform: capitalize;

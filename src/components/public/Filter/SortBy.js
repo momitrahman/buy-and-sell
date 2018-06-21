@@ -4,9 +4,10 @@ import * as color from '../../../color';
 
 const SortByBox = styled.div`
   background-color: white;
+  padding: 5px 10px;
   border: 1px solid ${color.colorG};
-  padding: 13px 12px;
-  border-radius: 5px;
+  border-radius: 100px;
+  position: relative;
 `;
 
 const SortBySelect = styled.select`
@@ -16,6 +17,7 @@ const SortBySelect = styled.select`
   border: 1px solid white;
   text-decoration: none;
   appearance: none;
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -25,9 +27,9 @@ const SortBySelect = styled.select`
 const Icon = styled.i`
   color: ${color.colorG};
   font-size: 18px;
-  margin-right: 10px;
   line-height: 0;
   vertical-align: baseline;
+  margin-right: 5px;
 `;
 
 const sortBy = props => {

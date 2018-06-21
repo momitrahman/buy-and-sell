@@ -17,7 +17,7 @@ const filterCategoryList = props => {
       <FilterCategoryItem
         key={index + 1}
         categoryTitle={categoryTitle}
-        icon="ion-md-arrow-dropright"
+        icon="ion-md-add"
         handleSubcategory={props.handleSubcategory}
       />
     )

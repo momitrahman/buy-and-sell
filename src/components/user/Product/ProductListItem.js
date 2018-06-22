@@ -11,17 +11,19 @@ const Item = styled.div`
   width: 650px;
   display: flex;
   justify-content: space-between;
-  margin: 30px 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 1px black;
-  background: white;
+  margin: 15px 10px;
+  border-radius: 5px;
+  color: ${color.colorBlack};
+  box-shadow: 0 1px 2px ${color.colorA};
+  background-color: white;
+  padding: 0;
   overflow: hidden;
 `;
 
 const Image = styled.img`
   display: block;
-  max-width: 150px;
-  max-height: 120px;
+  width: 160px;
+  height: 130px;
 `;
 
 const InfoBox = styled.div`
@@ -35,14 +37,15 @@ const Info = styled.div`
 `;
 
 const Heading = styled.div`
-  color: ${color.colorG};
+  color: ${color.colorA};
   font-size: 22px;
-  margin-bottom: 5px;
   text-transform: capitalize;
+  white-space: nowrap;
 `;
 
 const LocationTime = styled.div`
   font-size: 16px;
+  font-weight: 300;
 `;
 
 const Price = styled.div`
@@ -60,19 +63,21 @@ const Edit = styled(Link)`
   display: block;
   text-decoration: none;
   font-size: 16px;
-  color: black;
-  border: none;
-  padding: 10px;
-  background-color: green;
+  color: ${color.colorG};
+  padding: 7px;
+  margin-right: 5px;
+  border: 1px solid ${color.colorG};
+  border-radius: 100px;
+  text-align: center;
   cursor: pointer;
 `;
 
-const ProductListItem = props => {
-  const { title, location, price, date, key: pid } = props.item;
+const ProductListItem = ({ id, item, index }) => {
+  const { title, location, price, date } = item;
   return (
     <Item>
       <InfoBox>
-        <Image src="https://picsum.photos/200/200?random" />
+        <Image src={`https://picsum.photos/200/200/?${index}`} />
         <Info>
           <Heading>{title}</Heading>
           <LocationTime>
@@ -82,8 +87,8 @@ const ProductListItem = props => {
         </Info>
       </InfoBox>
       <Action>
-        <Edit to={`/user/edit/${pid}`}>Edit</Edit>
-        <DeleteProduct pid={pid}>Delete</DeleteProduct>
+        <Edit to={`/user/edit/${id}`}>Edit</Edit>
+        <DeleteProduct pid={id}>Delete</DeleteProduct>
       </Action>
     </Item>
   );

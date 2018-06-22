@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import * as color from '../../color';
 
 const Focus = styled.div`
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -15,7 +15,6 @@ const Focus = styled.div`
 
 const Content = styled.div`
   background-color: white;
-  /* width: 650px; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,15 +41,15 @@ const Body = styled.div`
 const OkButton = styled.div`
   text-decoration: none;
   border-style: none;
-  background-color: green;
+  background-color: ${color.colorG};
   padding: 5px 10px;
   color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 `;
 
 const CancelButton = styled(OkButton)`
-  background-color: orangered;
+  background-color: ${color.colorR};
 `;
 
 const Confirm = props => {

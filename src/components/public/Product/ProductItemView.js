@@ -123,8 +123,12 @@ class ProductItemView extends React.Component {
               from
               <Uppercase>{' ' + location}</Uppercase>
             </BasicInfo>
-            <img src="https://picsum.photos/700/300" />
+            <img
+              src="https://picsum.photos/700/300/?random"
+              alt="Product Item"
+            />
             <PriceInfo>
+              {/* eslint-disable-next-line */}
               <Price>৳ {price}</Price>
               <Info>
                 Category: <NonBoldSpan>{subcategory + ', '}</NonBoldSpan>

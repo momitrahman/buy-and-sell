@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import * as color from '../../color';
 
 const BackDrop = styled.div`
   position: absolute;
@@ -13,6 +14,7 @@ const BackDrop = styled.div`
 const Menu = styled.div`
   position: relative;
   font-size: 20px;
+  font-weight: 300;
   padding: 5px;
   padding-right: 20px;
   color: white;
@@ -21,17 +23,18 @@ const Menu = styled.div`
 
 const MenuList = styled.div`
   position: absolute;
+  font-weight: 400;
   background: white;
-  color: black;
-  min-width: calc(100% + 10px);
+  color: ${color.colorBlack};
+  width: 80%;
   z-index: 100;
 `;
 
 const Icon = styled.i`
-  color: black;
-  margin-left: 5px;
+  font-size: 20px;
   color: white;
-  font-size: 25px;
+  line-height: 0;
+  margin-left: 7px;
   vertical-align: middle;
 `;
 
@@ -50,7 +53,7 @@ export const DropDown = props => {
       {props.visible && <BackDrop onClick={props.handleMenu} />}
       <Menu onClick={props.handleMenu}>
         {props.title}
-        <Icon className="ion-android-arrow-dropdown" />
+        <Icon className="ion-ios-arrow-down" />
         {props.visible ? <MenuList>{props.children}</MenuList> : null}
       </Menu>
     </React.Fragment>

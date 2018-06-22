@@ -8,13 +8,13 @@ import * as color from '../../../color';
 const StyledLink = styled(Link)`
   display: block;
   position: relative;
-  width: 650px;
   margin: 30px 10px;
+  width: 650px;
   padding: 0;
   text-decoration: none;
   color: ${color.colorBlack};
   box-shadow: 0 1px 2px ${color.colorA};
-  background: white;
+  background-color: white;
   border-radius: 5px;
   overflow: hidden;
 `;
@@ -24,6 +24,7 @@ const Details = styled.div`
 `;
 
 const Image = styled.img`
+  display: block;
   width: 160px;
   height: 130px;
 `;
@@ -35,7 +36,7 @@ const Info = styled.div`
 
 const Heading = styled.div`
   color: ${color.colorA};
-  font-size: 24px;
+  font-size: 22px;
   text-transform: capitalize;
   white-space: nowrap;
 `;
@@ -47,8 +48,8 @@ const LocationCat = styled.div`
 `;
 
 const Price = styled.div`
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 600;
 `;
 
 const Time = styled.div`

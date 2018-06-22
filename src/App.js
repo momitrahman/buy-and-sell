@@ -49,6 +49,7 @@ class App extends Component {
           <Route exact path="/view/:id" component={ProductItemView} />
           <Route
             component={props => (
+              // eslint-disable-next-line
               <ErrorMessage {...props}>Page not found 😞</ErrorMessage>
             )}
           />

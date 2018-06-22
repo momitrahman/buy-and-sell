@@ -23,6 +23,7 @@ const Content = styled.div`
   overflow: auto;
   z-index: 100;
   padding: 10px 0 5px 0;
+  border-radius: 5px;
 `;
 
 const Title = styled.div`

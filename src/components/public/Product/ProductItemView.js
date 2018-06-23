@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
-import base from '../../../firebase';
 import * as color from '../../../color';
 
 const Wrapper = styled.div`
@@ -51,7 +50,7 @@ const Price = styled.div`
 
 const Info = styled.div`
   font-size: 18px;
-  border-bottom: 3px solid ${color.colorO};
+  border-bottom: 1px solid ${color.colorO};
 `;
 
 const Description = styled.div`
@@ -72,7 +71,7 @@ const Contact = styled.div`
 `;
 const Icon = styled.i`
   line-height: 0;
-  color: ${color.colorG}
+  color: ${color.colorB}
   font-size: 20px;
   vertical-align: middle;
   margin-right: 10px;
@@ -82,75 +81,53 @@ const NonBoldSpan = styled.span`
   font-weight: 300;
 `;
 
-class ProductItemView extends React.Component {
-  state = {
-    item: undefined
-  };
-  componentDidMount() {
-    base
-      .fetch(`/products/${this.props.match.params.id}`, {
-        context: this
-      })
-      .then(data => this.setState({ item: data }))
-      .catch(error => console.log(error));
-  }
-  render() {
-    console.log(this.state.item);
-    const {
-      title,
-      name,
-      date,
-      location,
-      price,
-      subcategory,
-      type,
-      description,
-      mobile,
-      email
-    } =
-      this.state.item || {};
+const ProductItemView = props => {
+  const {
+    title,
+    name,
+    date,
+    location,
+    price,
+    subcategory,
+    type,
+    description,
+    mobile,
+    email
+  } = props.item;
 
-    return (
-      <React.Fragment>
-        {this.state.item ? (
-          <Wrapper>
-            <Title>{title}</Title>
-            <BasicInfo>
-              Posted by
-              <Uppercase> {name}, </Uppercase>
-              {moment(moment(date)).format('dddd, MMMM Do YYYY, h:mm a') + ' '}
-              from
-              <Uppercase>{' ' + location}</Uppercase>
-            </BasicInfo>
-            <img
-              src="https://picsum.photos/700/300/?random"
-              alt="Product Item"
-            />
-            <PriceInfo>
-              {/* eslint-disable-next-line */}
-              <Price>৳ {price}</Price>
-              <Info>
-                Category: <NonBoldSpan>{subcategory + ', '}</NonBoldSpan>
-                Condition: <NonBoldSpan>{type}</NonBoldSpan>
-              </Info>
-            </PriceInfo>
-            <Description>{description}</Description>
-            <ContactInfo>
-              Contact
-              <Contact>
-                <Icon className="ion-md-call" />
-                {mobile}
-              </Contact>
-              <Contact>
-                <Icon className="ion-md-mail" />
-                {email}
-              </Contact>
-            </ContactInfo>
-          </Wrapper>
-        ) : null}
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <Wrapper>
+      <Title>{title}</Title>
+      <BasicInfo>
+        Posted by
+        <Uppercase> {name}, </Uppercase>
+        {moment(moment(date)).format('dddd, MMMM Do YYYY, h:mm a') + ' '}
+        from
+        <Uppercase>{' ' + location}</Uppercase>
+      </BasicInfo>
+      <img src="https://picsum.photos/700/300/?random" alt="Product Item" />
+      <PriceInfo>
+        {/* eslint-disable-next-line */}
+        <Price>৳ {price}</Price>
+        <Info>
+          Category: <NonBoldSpan>{subcategory + ', '}</NonBoldSpan>
+          Condition: <NonBoldSpan>{type}</NonBoldSpan>
+        </Info>
+      </PriceInfo>
+      <Description>{description}</Description>
+      <ContactInfo>
+        Contact
+        <Contact>
+          <Icon className="ion-md-call" />
+          {mobile}
+        </Contact>
+        <Contact>
+          <Icon className="ion-md-mail" />
+          {email}
+        </Contact>
+      </ContactInfo>
+    </Wrapper>
+  );
+};
 
 export default ProductItemView;

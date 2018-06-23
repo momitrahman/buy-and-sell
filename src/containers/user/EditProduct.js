@@ -158,9 +158,9 @@ class EditProduct extends React.Component {
     if (this.state.price.length <= 0) {
       this.setState({ priceMessage: 'Can not be empty' });
     }
-    if (this.state.description.length <= 200) {
+    if (this.state.description.length <= 400) {
       this.setState({
-        descriptionMessage: 'At least 200 characters'
+        descriptionMessage: 'At least 400 characters'
       });
     }
     if (this.state.mobile.length < 11) {
@@ -170,7 +170,7 @@ class EditProduct extends React.Component {
     if (
       this.state.title.length > 0 &&
       this.state.price.length > 0 &&
-      this.state.description.length >= 200 &&
+      this.state.description.length >= 400 &&
       this.state.mobile.length === 11
     ) {
       base

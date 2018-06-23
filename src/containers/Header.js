@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from 'firebase';
 
 import HeaderBar from '../components/HeaderBar';
-import AuthBox from '../components/public/AuthBox/AuthBox';
+import AuthBox from './public/AuthBox';
 import StyledLink from '../components/utility/StyledLink';
 import { DropDown, DropDownItem } from '../components/utility/DropDown';
 

@@ -22,7 +22,7 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border: 1px solid ${color.colorG};
+    border: 1px solid ${color.colorB};
   }
 `;
 

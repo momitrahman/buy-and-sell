@@ -46,7 +46,7 @@ class Products extends React.Component {
           this.productList()
         ) : (
           // eslint-disable-next-line
-          <ErrorMessage> Noting found 😞</ErrorMessage>
+          <ErrorMessage>Noting found 😞</ErrorMessage>
         )}
         {this.props.filteredProduct.length > this.state.limit && (
           <LoadMoreProduct loadMore={this.loadMore} />

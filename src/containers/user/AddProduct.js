@@ -19,7 +19,8 @@ class AddProduct extends React.Component {
     title: '',
     type: 'used',
     price: '',
-    description: '',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
     mobile: '',
     titleMessage: false,
     priceMessage: false,
@@ -145,9 +146,9 @@ class AddProduct extends React.Component {
     if (this.state.price.length <= 0) {
       this.setState({ priceMessage: 'Can not be empty' });
     }
-    if (this.state.description.length <= 200) {
+    if (this.state.description.length <= 400) {
       this.setState({
-        descriptionMessage: 'At least 200 characters'
+        descriptionMessage: 'At least 400 characters'
       });
     }
     if (this.state.mobile.length < 11) {
@@ -157,7 +158,7 @@ class AddProduct extends React.Component {
     if (
       this.state.title.length > 0 &&
       this.state.price.length > 0 &&
-      this.state.description.length >= 200 &&
+      this.state.description.length >= 400 &&
       this.state.mobile.length === 11
     ) {
       base

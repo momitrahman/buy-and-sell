@@ -6,7 +6,7 @@ import Header from './containers/Header';
 import Public from './App/Public';
 import User from './App/User';
 import ErrorMessage from './components/ErrorMessage';
-import ProductItemView from './components/public/Product/ProductItemView';
+import ProductView from './containers/public/ProductView';
 
 class App extends Component {
   state = {
@@ -46,7 +46,7 @@ class App extends Component {
             path="/user"
             component={props => <User {...props} user={this.state.user} />}
           />
-          <Route exact path="/view/:id" component={ProductItemView} />
+          <Route exact path="/view/:id" component={ProductView} />
           <Route
             component={props => (
               // eslint-disable-next-line

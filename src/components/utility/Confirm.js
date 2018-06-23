@@ -15,6 +15,8 @@ const Focus = styled.div`
 
 const Content = styled.div`
   background-color: white;
+  border-radius: 5px;
+  padding: 15px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,7 +30,6 @@ const Title = styled.div`
   text-align: center;
   text-transform: uppercase;
   color: ${color.colorO};
-  padding: 10px;
 `;
 
 const Body = styled.div`

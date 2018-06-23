@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 import DeleteProduct from '../../../containers/user/DeleteProduct';
+import Edit from './Button/EditBtn';
 import * as color from '../../../color';
 
 const Item = styled.div`
@@ -57,19 +57,6 @@ const Action = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-`;
-
-const Edit = styled(Link)`
-  display: block;
-  text-decoration: none;
-  font-size: 16px;
-  color: ${color.colorB};
-  padding: 7px;
-  margin-right: 10px;
-  border: 1px solid ${color.colorB};
-  border-radius: 100px;
-  text-align: center;
-  cursor: pointer;
 `;
 
 const ProductListItem = ({ id, item, index }) => {

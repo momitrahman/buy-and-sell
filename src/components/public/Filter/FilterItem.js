@@ -4,12 +4,11 @@ import * as color from '../../../color';
 
 const Button = styled.button`
   font-size: 16px;
-  color: ${color.colorG};
+  color: ${color.colorB};
   background-color: white;
   text-decoration: none;
-  border: none;
   border-radius: 100px;
-  border: 1px solid ${color.colorG};
+  border: 1px solid ${color.colorB};
   padding: 5px 10px;
   text-transform: capitalize;
   white-space: nowrap;

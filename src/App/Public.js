@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import base from '../firebase';
 
 import Products from '../containers/public/Products';
-import SearchBar from '../components/public/SearchBar';
 import Filter from '../containers/public/Filter';
+import SearchBar from '../components/public/SearchBar';
 
 class Public extends Component {
   state = {

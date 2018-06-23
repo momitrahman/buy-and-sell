@@ -7,6 +7,7 @@ import InputTextarea from '../../components/user/Form/InputTextarea';
 import SubmitButton from '../../components/user/Form/SubmitButton';
 import Message from '../../components/user/Form/Message';
 import StyledLink from '../../components/utility/StyledLink';
+import Wrapper from '../../components/user/Form/Wrapper';
 
 class EditProduct extends React.Component {
   state = {
@@ -193,7 +194,7 @@ class EditProduct extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Wrapper>
         {this.state.title ? (
           <React.Fragment>
             <InputDropDown
@@ -263,7 +264,7 @@ class EditProduct extends React.Component {
         ) : (
           <StyledLink to="/user/product-list">Get Back</StyledLink>
         )}
-      </React.Fragment>
+      </Wrapper>
     );
   }
 }

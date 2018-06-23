@@ -1,33 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import * as color from '../../../color';
 
 import Title from './Title';
-import Wrapper from './Wrapper';
 
 const TextArea = styled.textarea`
   display: block;
   padding: 10px;
   font-size: 16px;
-  width: 650px;
-  border: none;
-  border-radius: 10px;
+  width: 620px;
+  border: 1px solid ${color.colorA};
+  border-radius: 5px;
+  color: ${color.colorBlack};
   margin-top: 5px;
   overflow: auto;
 `;
 
 const InputTextarea = props => (
-  <Wrapper>
-    <Title>
-      {props.title}
-      <TextArea
-        rows="5"
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={props.handleChange}
-      />
-    </Title>
-  </Wrapper>
+  <Title>
+    {props.title}
+    <TextArea
+      rows="5"
+      placeholder={props.placeholder}
+      value={props.value}
+      onChange={props.handleChange}
+    />
+  </Title>
 );
 
 InputTextarea.propTypes = {

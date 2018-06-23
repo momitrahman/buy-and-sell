@@ -5,7 +5,7 @@ import * as color from '../../../color';
 const SortByBox = styled.div`
   background-color: white;
   padding: 5px 10px;
-  border: 1px solid ${color.colorG};
+  border: 2px solid ${color.colorG};
   border-radius: 100px;
   position: relative;
 `;

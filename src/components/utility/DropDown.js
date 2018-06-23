@@ -13,8 +13,7 @@ const BackDrop = styled.div`
 
 const Menu = styled.div`
   position: relative;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 18px;
   padding: 5px;
   padding-right: 20px;
   color: white;
@@ -31,7 +30,7 @@ const MenuList = styled.div`
 `;
 
 const Icon = styled.i`
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   line-height: 0;
   margin-left: 7px;

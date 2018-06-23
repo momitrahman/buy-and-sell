@@ -7,6 +7,7 @@ const Message = styled.div`
   background-color: #fbddd1;
   line-height: 1;
   padding: 5px;
+  margin-top: 5px;
   border: 1px solid ${color.colorR};
   border-radius: 5px;
 `;

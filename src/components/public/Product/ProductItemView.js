@@ -7,8 +7,8 @@ import * as color from '../../../color';
 const Wrapper = styled.div`
   width: 650px;
   border-radius: 5px;
-  /* border: 1px solid ${color.colorA}; */
   box-shadow: 0 1px 2px ${color.colorA};
+  border-bottom: 3px solid ${color.colorG};
   background: white;
   overflow: hidden;
   margin-bottom: 10px;
@@ -64,7 +64,6 @@ const ContactInfo = styled.div`
   padding: 5px 20px;
   font-size: 20px;
   font-weight: 600;
-  border-bottom: 3px solid ${color.colorG};
 `;
 
 const Contact = styled.div`

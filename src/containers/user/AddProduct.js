@@ -6,6 +6,7 @@ import InputDropDown from '../../components/user/Form/InputDropDown';
 import InputTextarea from '../../components/user/Form/InputTextarea';
 import SubmitButton from '../../components/user/Form/SubmitButton';
 import Message from '../../components/user/Form/Message';
+import Wrapper from '../../components/user/Form/Wrapper';
 
 class AddProduct extends React.Component {
   state = {
@@ -184,7 +185,7 @@ class AddProduct extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <Wrapper>
         <InputDropDown
           title="Category"
           options={Object.keys(this.state.categoryList).map(item =>
@@ -248,7 +249,7 @@ class AddProduct extends React.Component {
           <Message>{this.state.mobileMessage}</Message>
         )}
         <SubmitButton onClick={this.handleSubmit}>SUBMIT</SubmitButton>
-      </React.Fragment>
+      </Wrapper>
     );
   }
 }

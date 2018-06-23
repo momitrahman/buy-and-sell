@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import * as color from '../../../color';
 
 import Title from './Title';
-import Wrapper from './Wrapper';
 
 const Select = styled.select`
   display: block;
   font-size: 16px;
-  color: inherit;
-  padding: 10px;
-  width: 650px;
-  border: none;
-  border-radius: 5px;
-  background: white;
-  margin-top: 5px;
+  color: ${color.colorBlack};
+  padding: 5px;
+  width: 620px;
+  margin: 5px 0;
+  color: ${color.colorBlack};
+  background-color: white;
   text-transform: capitalize;
+  border-radius: 5px;
+  border: 1px solid ${color.colorA};
 `;
 
 const Options = options =>
@@ -26,14 +27,12 @@ const Options = options =>
   ));
 
 const InputDropDown = props => (
-  <Wrapper>
-    <Title>
-      {props.title}
-      <Select value={props.value} onChange={props.handleChange}>
-        {Options(props.options)}
-      </Select>
-    </Title>
-  </Wrapper>
+  <Title>
+    {props.title}
+    <Select value={props.value} onChange={props.handleChange}>
+      {Options(props.options)}
+    </Select>
+  </Title>
 );
 
 InputDropDown.propTypes = {

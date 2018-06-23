@@ -1,32 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
+import * as color from '../../../color';
 import Title from './Title';
-import Wrapper from './Wrapper';
 
 const Input = styled.input`
   display: block;
   padding: 10px;
   font-size: 16px;
-  width: 650px;
+  width: 620px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   margin-top: 5px;
+  color: ${color.colorBlack};
+  border: 1px solid ${color.colorA};
+  text-transform: capitalize;
 `;
 
 const InputText = props => (
-  <Wrapper>
-    <Title>
-      {props.title}
-      <Input
-        type="text"
-        placeholder={props.placeholder}
-        value={props.value}
-        onChange={props.handleChange}
-      />
-    </Title>
-  </Wrapper>
+  <Title>
+    {props.title}
+    <Input
+      type="text"
+      placeholder={props.placeholder}
+      value={props.value}
+      onChange={props.handleChange}
+    />
+  </Title>
 );
 
 InputText.propTypes = {

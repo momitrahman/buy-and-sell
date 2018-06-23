@@ -66,10 +66,19 @@ class AddProduct extends React.Component {
 
   handleNameChange = event => {
     const value = event.target.value;
-    if (value.length <= 50) {
-      this.setState({ title: value, titleMessage: false });
+    const valueLength = value.length;
+    if (valueLength <= 70) {
+      return this.setState({
+        title: value,
+        titleMessage:
+          valueLength > 0 && valueLength < 70
+            ? `${70 - valueLength} characters left`
+            : false
+      });
     } else {
-      this.setState({ titleMessage: 'Max 50 Characters' });
+      return this.setState({
+        titleMessage: false
+      });
     }
   };
 
@@ -78,25 +87,43 @@ class AddProduct extends React.Component {
     if (!isNaN(value)) {
       this.setState({ price: value, priceMessage: false });
     } else {
-      this.setState({ priceMessage: 'Numbers Only' });
+      this.setState({ priceMessage: 'Numbers only' });
     }
   };
 
   handleDescriptionChange = event => {
     const value = event.target.value;
-    if (value.length <= 1500) {
-      this.setState({ description: value, descriptionMessage: false });
+    const valueLength = value.length;
+    if (valueLength <= 1500) {
+      this.setState({
+        description: value,
+        descriptionMessage:
+          valueLength > 0 && valueLength < 1500
+            ? `${1500 - valueLength} characters left`
+            : false
+      });
     } else {
-      this.setState({ descriptionMessage: 'Max 1500 Characters' });
+      this.setState({ descriptionMessage: false });
     }
   };
 
   handleMobileChange = event => {
     const value = event.target.value;
-    if (!isNaN(value) && value.length <= 11) {
-      this.setState({ mobile: value, mobileMessage: false });
+    const valueLength = value.length;
+    if (!isNaN(value)) {
+      if (valueLength <= 11) {
+        this.setState({
+          mobile: value,
+          mobileMessage:
+            valueLength > 0 && valueLength < 11
+              ? `${11 - valueLength} digit left`
+              : false
+        });
+      } else {
+        this.setState({ mobileMessage: false });
+      }
     } else {
-      this.setState({ mobileMessage: '11 Digits Only' });
+      this.setState({ mobileMessage: 'Numbers only' });
     }
   };
 
@@ -112,18 +139,18 @@ class AddProduct extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     if (this.state.title.length === 0) {
-      this.setState({ titleMessage: 'Title Can Not Be Empty' });
+      this.setState({ titleMessage: 'Can not be empty' });
     }
     if (this.state.price.length <= 0) {
-      this.setState({ priceMessage: 'Price Can Not Be Empty' });
+      this.setState({ priceMessage: 'Can not be empty' });
     }
     if (this.state.description.length <= 200) {
       this.setState({
-        descriptionMessage: 'Description Can Not Be Less Than 200 Characters'
+        descriptionMessage: 'At least 200 characters'
       });
     }
     if (this.state.mobile.length < 11) {
-      this.setState({ mobileMessage: 'Must Be 11 Digits' });
+      this.setState({ mobileMessage: 'Must be 11 digit' });
     }
 
     if (

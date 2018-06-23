@@ -12,7 +12,7 @@ class Public extends Component {
     search: '',
     location: '',
     category: '',
-    sortBy: 'dateNewToOld'
+    sortBy: ''
   };
 
   componentDidMount() {
@@ -22,7 +22,11 @@ class Public extends Component {
         asArray: true
       })
       .then(data =>
-        this.setState({ products: data, filteredProductList: data })
+        this.setState({
+          products: data,
+          filteredProductList: data,
+          sortBy: 'dateNewToOld'
+        })
       )
       .catch(error => console.log(error));
   }
@@ -107,9 +111,9 @@ class Public extends Component {
     } else if (currentSortBy === 'priceHighToLow') {
       sortByList = filteredProductList.sort((a, b) => b.price - a.price);
     } else if (currentSortBy === 'dateNewToOld') {
-      sortByList = filteredProductList.sort((a, b) => b.time - a.time);
+      sortByList = filteredProductList.sort((a, b) => b.date - a.date);
     } else if (currentSortBy === 'dateOldToNew') {
-      sortByList = filteredProductList.sort((a, b) => a.time - b.time);
+      sortByList = filteredProductList.sort((a, b) => a.date - b.date);
     }
     this.setState({ filteredProductList: sortByList });
   };

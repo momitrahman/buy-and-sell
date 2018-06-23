@@ -6,20 +6,20 @@ import ErrorMessage from '../../components/ErrorMessage';
 
 class Products extends React.Component {
   state = {
-    limit: 2
+    limit: 10
   };
 
   // reset limit if product list change
   componentDidUpdate(prevProps) {
     if (this.props.filteredProduct !== prevProps.filteredProduct) {
-      this.setState({ limit: 2 });
+      this.setState({ limit: 10 });
     }
   }
 
   // set product load limit
   loadMore = () => {
     this.setState(prevState => ({
-      limit: prevState.limit + 1
+      limit: prevState.limit + 10
     }));
   };
 

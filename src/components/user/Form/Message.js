@@ -3,10 +3,12 @@ import * as color from '../../../color';
 
 const Message = styled.div`
   font-size: 14px;
-  color: ${color.colorR};
-  margin: 5px 0;
-  padding: 3px 5px;
+  color: ${color.colorBlack};
+  background-color: #fbddd1;
+  line-height: 1;
+  padding: 5px;
   border: 1px solid ${color.colorR};
+  border-radius: 5px;
 `;
 
 export default Message;

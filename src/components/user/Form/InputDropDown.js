@@ -10,9 +10,9 @@ const Select = styled.select`
   font-size: 16px;
   color: inherit;
   padding: 10px;
-  width: 550px;
+  width: 650px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background: white;
   margin-top: 5px;
   text-transform: capitalize;

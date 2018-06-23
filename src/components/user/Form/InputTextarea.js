@@ -9,7 +9,7 @@ const TextArea = styled.textarea`
   display: block;
   padding: 10px;
   font-size: 16px;
-  width: 550px;
+  width: 650px;
   border: none;
   border-radius: 10px;
   margin-top: 5px;

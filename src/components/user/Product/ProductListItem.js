@@ -63,10 +63,10 @@ const Edit = styled(Link)`
   display: block;
   text-decoration: none;
   font-size: 16px;
-  color: ${color.colorG};
+  color: ${color.colorB};
   padding: 7px;
-  margin-right: 5px;
-  border: 1px solid ${color.colorG};
+  margin-right: 10px;
+  border: 1px solid ${color.colorB};
   border-radius: 100px;
   text-align: center;
   cursor: pointer;

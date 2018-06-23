@@ -23,7 +23,9 @@ class User extends React.Component {
             equalTo: this.props.user.uid
           }
         })
-        .then(data => this.setState({ productList: data }))
+        .then(data =>
+          this.setState({ productList: data.sort((a, b) => b.date - a.date) })
+        )
         .catch(error => console.log(error));
     }
   }

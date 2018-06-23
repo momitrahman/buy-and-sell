@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   width: 650px;
   border-radius: 5px;
   box-shadow: 0 1px 2px ${color.colorA};
-  border-bottom: 3px solid ${color.colorG};
+  border-bottom: 3px solid ${color.colorA};
   background: white;
   overflow: hidden;
   margin-bottom: 10px;

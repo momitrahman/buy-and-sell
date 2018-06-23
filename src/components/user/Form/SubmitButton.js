@@ -4,7 +4,7 @@ import * as color from '../../../color';
 const SubmitButton = styled.button`
   text-decoration: none;
   color: white;
-  background-color: ${color.colorA};
+  background-color: ${color.colorB};
   border: none;
   border-radius: 5px;
   width: 620px;

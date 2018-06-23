@@ -17,6 +17,12 @@ const Select = styled.select`
   text-transform: capitalize;
   border-radius: 5px;
   border: 1px solid ${color.colorA};
+
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: ${color.colorB};
+  }
 `;
 
 const Options = options =>

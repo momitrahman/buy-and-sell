@@ -15,6 +15,11 @@ const TextArea = styled.textarea`
   color: ${color.colorBlack};
   margin-top: 5px;
   overflow: auto;
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: ${color.colorB};
+  }
 `;
 
 const InputTextarea = props => (

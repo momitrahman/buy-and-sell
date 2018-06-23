@@ -37,13 +37,13 @@ const Info = styled.div`
 const Heading = styled.div`
   color: ${color.colorA};
   font-size: 22px;
+  font-weight: 300;
   text-transform: capitalize;
   white-space: nowrap;
 `;
 
 const LocationCat = styled.div`
   font-size: 16px;
-  font-weight: 300;
   text-transform: capitalize;
 `;
 

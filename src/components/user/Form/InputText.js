@@ -15,6 +15,12 @@ const Input = styled.input`
   color: ${color.colorBlack};
   border: 1px solid ${color.colorA};
   text-transform: capitalize;
+
+  &:focus {
+    outline: none;
+    color: white;
+    background-color: ${color.colorB};
+  }
 `;
 
 const InputText = props => (

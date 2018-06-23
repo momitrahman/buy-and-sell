@@ -12,7 +12,7 @@ const Delete = styled.button`
   font-size: 16px;
   color: ${color.colorR};
   padding: 7px;
-  margin-right: 5px;
+  margin-right: 10px;
   border: 1px solid ${color.colorR};
   border-radius: 100px;
   text-align: center;

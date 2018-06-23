@@ -16,13 +16,13 @@ const Input = styled.input`
   line-height: 10px;
   font-size: 18px;
   padding: 10px;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
 
   &:focus {
     outline: none;
-    border: 2px solid ${color.colorG};
+    border: 1px solid ${color.colorG};
   }
 `;
 

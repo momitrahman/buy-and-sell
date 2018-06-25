@@ -7,7 +7,6 @@ import * as color from '../../../color';
 
 const StyledLink = styled(Link)`
   display: block;
-  position: relative;
   margin: 30px 10px;
   width: 650px;
   padding: 0;
@@ -17,6 +16,10 @@ const StyledLink = styled(Link)`
   background-color: white;
   border-radius: 5px;
   overflow: hidden;
+
+  @media (max-width: 700px) {
+    width: 95vw;
+  }
 `;
 
 const Details = styled.div`
@@ -26,7 +29,10 @@ const Details = styled.div`
 const Image = styled.img`
   display: block;
   width: 160px;
-  height: 130px;
+
+  @media (max-width: 700px) {
+    width: 100px;
+  }
 `;
 
 const Info = styled.div`
@@ -40,16 +46,27 @@ const Heading = styled.div`
   font-weight: 300;
   text-transform: capitalize;
   white-space: nowrap;
+
+  @media (max-width: 700px) {
+    font-size: 20px;
+  }
 `;
 
 const LocationCat = styled.div`
   font-size: 16px;
   text-transform: capitalize;
+  @media (max-width: 700px) {
+    font-size: 14px;
+  }
 `;
 
 const Price = styled.div`
   font-size: 18px;
   font-weight: 600;
+
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `;
 
 const Time = styled.div`
@@ -57,9 +74,9 @@ const Time = styled.div`
   font-weight: 400;
   color: ${color.colorB};
   margin-right: 10px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  @media (max-width: 700px) {
+    font-size: 14px;
+  }
 `;
 
 const ProductListItem = ({ id, item, index }) => {
@@ -76,9 +93,9 @@ const ProductListItem = ({ id, item, index }) => {
             </LocationCat>
           </div>
           <Price>৳ {price}</Price>
+          <Time>{moment(moment(date)).fromNow()}</Time>
         </Info>
       </Details>
-      <Time>{moment(moment(date)).fromNow()}</Time>
     </StyledLink>
   );
 };

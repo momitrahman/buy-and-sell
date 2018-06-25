@@ -13,12 +13,21 @@ const SearchBox = styled.div`
 const Input = styled.input`
   display: block;
   width: 600px;
-  line-height: 10px;
+  line-height: 1;
   font-size: 18px;
   padding: 10px;
   border: 1px solid transparent;
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;
+  @media (max-width: 700px) {
+    width: 85vw;
+    font-size: 16px;
+  }
+
+  @media (max-width: 400px) {
+    width: 80vw;
+    font-size: 16px;
+  }
 
   &:focus {
     outline: none;
@@ -31,12 +40,22 @@ const ClearIcon = styled.i`
   font-size: 30px;
   color: white;
   width: 50px;
-  padding: 5px 15px;
+  padding: 10px;
   border-top-right-radius: 100px;
   border-bottom-right-radius: 100px;
   background-color: ${color.colorR};
   cursor: pointer;
   vertical-align: middle;
+  text-align: center;
+  @media (max-width: 700px) {
+    width: 10vw;
+    font-size: 25px;
+  }
+
+  @media (max-width: 400px) {
+    width: 15vw;
+    font-size: 22px;
+  }
 `;
 
 const SearchBar = props => {

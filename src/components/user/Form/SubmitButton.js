@@ -14,6 +14,10 @@ const SubmitButton = styled.button`
   font-weight: 300;
   text-transform: uppercase;
   cursor: pointer;
+  @media (max-width: 700px) {
+    width: 95vw;
+    font-size: 18px;
+  }
 `;
 
 export default SubmitButton;

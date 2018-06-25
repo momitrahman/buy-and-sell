@@ -3,7 +3,7 @@ import base from '../../firebase';
 import { withRouter } from 'react-router';
 
 import Confirm from '../../components/utility/Confirm';
-import Delete from '../../components/user/Product/Button/DeleteBtn';
+import Delete from '../../components/user/Button/DeleteBtn';
 
 class DeleteProduct extends React.Component {
   state = { visible: false };

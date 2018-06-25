@@ -3,22 +3,26 @@ import styled from 'styled-components';
 import * as color from '../../../color';
 
 const Button = styled.button`
+  display: block;
   font-size: 16px;
   color: ${color.colorB};
   background-color: white;
   text-decoration: none;
   border-radius: 100px;
   border: 1px solid ${color.colorB};
-  padding: 5px 10px;
+  padding: 5px 0;
   text-transform: capitalize;
-  white-space: nowrap;
-  overflow: hidden;
   cursor: pointer;
-  width: 200px;
+  flex: 1 1 0;
+  margin-right: 10px;
+  @media (max-width: 700px) {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
 `;
 
 const Icon = styled.i`
-  font-size: 18px;
+  font-size: 16px;
   line-height: 0;
   border: none;
   vertical-align: baseline;

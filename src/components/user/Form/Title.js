@@ -8,6 +8,9 @@ const Title = styled.label`
   color: ${color.colorBlack};
   margin-top: 10px;
   text-transform: capitalize;
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `;
 
 export default Title;

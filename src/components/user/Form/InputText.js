@@ -15,6 +15,10 @@ const Input = styled.input`
   color: ${color.colorBlack};
   border: 1px solid ${color.colorA};
   text-transform: capitalize;
+  @media (max-width: 700px) {
+    width: 95vw;
+    font-size: 14px;
+  }
 
   &:focus {
     outline: none;

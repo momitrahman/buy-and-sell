@@ -18,6 +18,9 @@ const Menu = styled.div`
   padding-right: 20px;
   color: white;
   cursor: pointer;
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `;
 
 const MenuList = styled.div`
@@ -35,6 +38,9 @@ const Icon = styled.i`
   line-height: 0;
   margin-left: 7px;
   vertical-align: middle;
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `;
 
 export const DropDownItem = styled.div`
@@ -44,6 +50,9 @@ export const DropDownItem = styled.div`
   margin-top: 10px;
   padding: 0 5px;
   cursor: pointer;
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `;
 
 export const DropDown = props => {

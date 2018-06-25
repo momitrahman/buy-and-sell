@@ -24,6 +24,10 @@ const Content = styled.div`
   z-index: 100;
   padding: 10px 0 5px 0;
   border-radius: 5px;
+  text-align: left;
+  @media (max-width: 700px) {
+    width: 95vw;
+  }
 `;
 
 const Title = styled.div`
@@ -33,11 +37,17 @@ const Title = styled.div`
   text-transform: uppercase;
   color: ${color.colorO};
   border-bottom: 1px solid ${color.colorO};
+  @media (max-width: 700px) {
+    font-size: 16px;
+  }
 `;
 
 const Body = styled.div`
   font-size: 16px;
   margin: 25px;
+  @media (max-width: 700px) {
+    font-size: 14px;
+  }
 `;
 
 const Close = styled.i`
@@ -46,6 +56,9 @@ const Close = styled.i`
   margin-right: 10px;
   cursor: pointer;
   vertical-align: baseline;
+  @media (max-width: 700px) {
+    font-size: 18px;
+  }
 
   &:hover {
     color: ${color.colorO};

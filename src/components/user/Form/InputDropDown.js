@@ -17,6 +17,10 @@ const Select = styled.select`
   text-transform: capitalize;
   border-radius: 5px;
   border: 1px solid ${color.colorA};
+  @media (max-width: 700px) {
+    width: 95vw;
+    font-size: 14px;
+  }
 
   &:focus {
     outline: none;

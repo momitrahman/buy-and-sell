@@ -20,6 +20,11 @@ const TextArea = styled.textarea`
     color: white;
     background-color: ${color.colorB};
   }
+
+  @media (max-width: 700px) {
+    width: 95vw;
+    font-size: 14px;
+  }
 `;
 
 const InputTextarea = props => (

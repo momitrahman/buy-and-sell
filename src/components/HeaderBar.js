@@ -12,6 +12,9 @@ const Header = styled.div`
   align-items: center;
   background-color: ${color.colorA};
   margin-bottom: 30px;
+  @media (max-width: 700px) {
+    width: 100vw;
+  }
 `;
 
 const Title = styled.div`
@@ -20,6 +23,10 @@ const Title = styled.div`
   color: white;
   padding: 10px;
   cursor: pointer;
+  @media (max-width: 700px) {
+    font-size: 18px;
+    padding: 7px 10px;
+  }
 `;
 
 const HeaderBar = props => (

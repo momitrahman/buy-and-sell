@@ -4,10 +4,9 @@ import * as color from '../../../color';
 
 const SortByBox = styled.div`
   background-color: white;
-  padding: 5px 10px;
   border: 1px solid ${color.colorB};
   border-radius: 100px;
-  position: relative;
+  flex: 1 1 0;
 `;
 
 const SortBySelect = styled.select`
@@ -18,7 +17,6 @@ const SortBySelect = styled.select`
   text-decoration: none;
   appearance: none;
   cursor: pointer;
-
   &:focus {
     outline: none;
   }
@@ -26,7 +24,7 @@ const SortBySelect = styled.select`
 
 const Icon = styled.i`
   color: ${color.colorB};
-  font-size: 18px;
+  font-size: 16px;
   line-height: 0;
   vertical-align: baseline;
   margin-right: 5px;

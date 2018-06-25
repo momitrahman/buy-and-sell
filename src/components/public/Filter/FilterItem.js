@@ -13,7 +13,7 @@ const Button = styled.button`
   padding: 5px 0;
   text-transform: capitalize;
   cursor: pointer;
-  flex: 1 1 0;
+  flex: 1;
   margin-right: 10px;
   @media (max-width: 700px) {
     margin-right: 0;

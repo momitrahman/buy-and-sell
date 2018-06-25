@@ -26,6 +26,7 @@ const Item = styled.div`
 const Image = styled.img`
   display: block;
   width: 160px;
+  max-height: 140px;
   @media (max-width: 700px) {
     width: 100px;
   }

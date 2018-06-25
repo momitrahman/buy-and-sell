@@ -6,7 +6,11 @@ const SortByBox = styled.div`
   background-color: white;
   border: 1px solid ${color.colorB};
   border-radius: 100px;
-  flex: 1 1 0;
+  padding: 5px 0;
+  flex: 1;
+  @media (max-width: 700px) {
+    padding: 0;
+  }
 `;
 
 const SortBySelect = styled.select`

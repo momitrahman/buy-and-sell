@@ -47,6 +47,7 @@ const Body = styled.div`
   margin: 25px;
   @media (max-width: 700px) {
     font-size: 14px;
+    margin: 0;
   }
 `;
 

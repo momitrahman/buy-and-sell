@@ -13,7 +13,7 @@ const Header = styled.div`
   background-color: ${color.colorA};
   margin-bottom: 30px;
   @media (max-width: 700px) {
-    width: 100vw;
+    width: 95vw;
   }
 `;
 

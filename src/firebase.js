@@ -2,12 +2,12 @@ import firebase from 'firebase';
 import Rebase from 're-base';
 
 const app = firebase.initializeApp({
-  apiKey: 'AIzaSyCyAyHCFma1Jq5HCbzz9BeA23XjEKeFW0A',
-  authDomain: 'buy-and-sell-67f4a.firebaseapp.com',
-  databaseURL: 'https://buy-and-sell-67f4a.firebaseio.com',
-  projectId: 'buy-and-sell-67f4a',
-  storageBucket: 'buy-and-sell-67f4a.appspot.com',
-  messagingSenderId: '304456071312'
+  apiKey: 'AIzaSyBbmFrBGDQ5QitgXM9jMWhzTzAlxUMjVBQ',
+  authDomain: 'buy-sell-d51cc.firebaseapp.com',
+  databaseURL: 'https://buy-sell-d51cc.firebaseio.com',
+  projectId: 'buy-sell-d51cc',
+  storageBucket: 'buy-sell-d51cc.appspot.com',
+  messagingSenderId: '542938790796'
 });
 
 const base = Rebase.createClass(app.database());

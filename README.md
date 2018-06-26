@@ -4,7 +4,7 @@ A web application for Dhaka city people to buy and sell their products. Partiall
 
 ## Live
 
-Anyone can browse full application but can submit any data. To prevent spam data entry i disable write permission. For deploy as your own [visit](https://github.com/momitrahman/buy-and-sell#-deploy-own-your-environment)
+Anyone can browse full application but can submit any data. To prevent spam data entry i disable write permission. For deploy as your own [visit](https://github.com/momitrahman/buy-and-sell#deploy-own-your-environment)
 
 Demo: https://buy-sell-d51cc.firebaseapp.com
 
@@ -43,6 +43,7 @@ Demo: https://buy-sell-d51cc.firebaseapp.com
 **NO UI LIBRARY/ PACKAGE USED**
 
 - Followed React file structure pattern.
+- Make dump components and containers separate.
 - For styling used CSS with helper of styled-components.
 - Made my own
   - Modal
@@ -61,14 +62,18 @@ Make sure you have installed
 
 Now follow these steps
 
-- git clone https://github.com/momitrahman/buy-and-sell
-- npm i
+- `$ git clone https://github.com/momitrahman/buy-and-sell`
+- `$ npm i`
 - Create a new project in firebase and copy your web. app config then paste into `/src/firebase.js` file in **key** variable.
 - To understand database structure check `/sample_data.json`
 - In firebase enable - `Authentication > Sign-in Method > Google`
-- npm start
+- `$ npm start`
 
 ## My Todo
 
-- [ ] Image upload option using cloudinary.com
+- [ ] Image upload option using [cloudinary](https://cloudinary.com/)
 - [ ] Image slider
+
+## Conclusion
+
+This application made with lots love and long time hard work. This project is open for everyone do whatever you want to do.

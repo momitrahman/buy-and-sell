@@ -14,7 +14,7 @@ Demo: https://buy-sell-d51cc.firebaseapp.com
 - [React Router](https://reacttraining.com/react-router/web/guides/philosophy),
 - [Firebase](https://firebase.google.com/) (Realtime Database, Authentication)
 - [Styled Components](https://github.com/styled-components/styled-components)
-- and other helper package [Ionicons](https://ionicons.com), [Moment.js](https://momentjs.com/), [re-base](https://github.com/tylermcginnis/re-base)
+- and helper packages [Ionicons](https://ionicons.com), [Moment.js](https://momentjs.com/), [re-base](https://github.com/tylermcginnis/re-base)
 - For dummy image [picsum.photos](https://picsum.photos/)
 
 ## Features
@@ -73,7 +73,3 @@ Now follow these steps
 
 - [ ] Image upload option using [cloudinary](https://cloudinary.com/)
 - [ ] Image slider
-
-## Conclusion
-
-This application made with lots love and long time hard work. This project is open for everyone do whatever you want to do.

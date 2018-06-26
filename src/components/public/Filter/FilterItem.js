@@ -10,11 +10,13 @@ const Button = styled.button`
   text-decoration: none;
   border-radius: 100px;
   border: 1px solid ${color.colorB};
-  padding: 5px 0;
+  padding: 5px;
   text-transform: capitalize;
   cursor: pointer;
   flex: 1;
   margin-right: 10px;
+  overflow: hidden;
+  white-space: nowrap;
   @media (max-width: 700px) {
     margin-right: 0;
     margin-bottom: 5px;

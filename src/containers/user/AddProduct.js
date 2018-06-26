@@ -192,7 +192,7 @@ class AddProduct extends React.Component {
           options={Object.keys(this.state.categoryList).map(item =>
             item.split('_').join(' ')
           )}
-          value={this.state.category}
+          value={this.state.category.split('_').join(' ')}
           handleChange={event => this.handleCategoryChange(event)}
         />
         <InputDropDown
@@ -218,7 +218,7 @@ class AddProduct extends React.Component {
         )}
         <InputDropDown
           title="Type"
-          options={['used', 'new']}
+          options={['Used', 'New']}
           value={this.state.type}
           handleChange={event => this.handleChange(event, 'type')}
         />

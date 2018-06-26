@@ -7,7 +7,7 @@ import * as color from '../../../color';
 
 const StyledLink = styled(Link)`
   display: block;
-  margin: 30px 10px;
+  margin: 30px 0;
   width: 650px;
   padding: 0;
   text-decoration: none;

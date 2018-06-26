@@ -6,6 +6,8 @@ import Header from './containers/Header';
 import Public from './App/Public';
 import User from './App/User';
 import ErrorMessage from './components/ErrorMessage';
+import Banner from './components/Banner';
+import Body from './components/Body';
 import ProductView from './containers/public/ProductView';
 
 class App extends Component {
@@ -36,24 +38,31 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <Route
-          path="/"
-          component={props => <Header {...props} user={this.state.user} />}
-        />
-        <Switch>
-          <Route exact path="/" component={Public} />
+        <Body>
           <Route
-            path="/user"
-            component={props => <User {...props} user={this.state.user} />}
+            path="/"
+            component={props => <Header {...props} user={this.state.user} />}
           />
-          <Route exact path="/view/:id" component={ProductView} />
-          <Route
-            component={props => (
-              // eslint-disable-next-line
-              <ErrorMessage {...props}>Page not found 😞</ErrorMessage>
-            )}
-          />
-        </Switch>
+          <Switch>
+            <Route exact path="/" component={Public} />
+            <Route
+              path="/user"
+              component={props => <User {...props} user={this.state.user} />}
+            />
+            <Route exact path="/view/:id" component={ProductView} />
+            <Route
+              component={props => (
+                // eslint-disable-next-line
+                <ErrorMessage {...props}>Page not found 😞</ErrorMessage>
+              )}
+            />
+          </Switch>
+        </Body>
+        <Banner>
+          Made with
+          <span style={{ color: '#F6360B' }}> ❤️ </span>
+          by Momit Rahman
+        </Banner>
       </React.Fragment>
     );
   }

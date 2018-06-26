@@ -12,7 +12,7 @@ const LoadMore = styled.i`
   border: none;
   border-radius: 100px;
   width: 650px;
-  margin: 10px;
+  margin: 10px 0;
   background-color: ${color.colorA};
   cursor: pointer;
   text-align: center;

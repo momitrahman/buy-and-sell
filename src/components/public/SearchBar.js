@@ -5,8 +5,6 @@ import * as color from '../../color';
 
 const SearchBox = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: stretch;
   line-height: 0;
 `;
 
@@ -15,7 +13,7 @@ const Input = styled.input`
   width: 600px;
   line-height: 1;
   font-size: 18px;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid transparent;
   border-top-left-radius: 100px;
   border-bottom-left-radius: 100px;

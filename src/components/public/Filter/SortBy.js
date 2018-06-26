@@ -6,7 +6,7 @@ const SortByBox = styled.div`
   background-color: white;
   border: 1px solid ${color.colorB};
   border-radius: 100px;
-  padding: 5px 0;
+  padding: 5px;
   flex: 1;
   @media (max-width: 700px) {
     padding: 0;

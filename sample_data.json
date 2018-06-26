@@ -1,0 +1,55 @@
+{
+  "category": {
+    "Electronics": [
+      "Mobile Phones",
+      "Mobile Phones Accesories",
+      "Computers & Tablets",
+      "Computer Accessories",
+      "TVs",
+      "Video Games & Consoles"
+    ],
+    "Pets_&_Animals": ["Pets", "Farm Animals"],
+    "Property": ["Apartments & Flats", "Houses", "Plots & Land"],
+    "Vehicles": [
+      "Cars",
+      "Motorbikes & Scooters",
+      "Bicycles and Three Wheelers",
+      "Boats & Water Transport"
+    ]
+  },
+  "locations": [
+    "Badda",
+    "Banani",
+    "Banglamotor",
+    "Bashundara",
+    "Dhanmondi",
+    "Hazaribagh",
+    "Jatrabari",
+    "Kawran Bazar",
+    "Khilgoan",
+    "Mohakhali",
+    "Mohammadpur",
+    "Motijhil",
+    "New Market",
+    "Paltan",
+    "Ramna",
+    "Tajgoan"
+  ],
+  "products": {
+    "-LFuprXfKclILUXEJmVE": {
+      "category": "Electronics",
+      "date": 1529914262000,
+      "description":
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "email": "unknown@gmail.com",
+      "location": "Badda",
+      "mobile": "01234567891",
+      "name": "Unknown",
+      "price": "7000",
+      "subcategory": "Mobile Phones",
+      "title": "xiaomi redmi 4",
+      "type": "used",
+      "uid": "unknowsxyz"
+    }
+  }
+}
